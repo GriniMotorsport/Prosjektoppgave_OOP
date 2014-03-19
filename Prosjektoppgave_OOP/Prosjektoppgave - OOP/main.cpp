@@ -2,5 +2,5 @@
 using namespace std;
 
 int main {
-	cout << "Gudbrand er kul";
+	cout << "Gudbrand er teit";
 }
