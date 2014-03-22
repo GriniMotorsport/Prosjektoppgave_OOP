@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SKRIVMENY.H"
+#include "GLOBALE.h"
 
 
 using namespace std;

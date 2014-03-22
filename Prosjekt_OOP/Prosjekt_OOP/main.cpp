@@ -1,20 +1,24 @@
 #include <iostream>
-#include "SKRIVMENY.h"
-#include "KUNDE.h"
+#include <cstring>
+
 using namespace std;
+
+#include "GLOBALE.h"
+#include "KUNDE.h"
+#include "EIENDOM.h"
 
 int main()	{
 
 char kommando;
 
 skriv_meny1();
-kommando = menyValg();
+kommando = meny_valg();
 
   while (kommando != 'Q')  {
     switch(kommando)  {
-      case 'E': eiendom();
+	case 'E' : ;
 		  skriv_meny2();
-kommando = menyValg();
+kommando = meny_valg();
 	
   while (kommando != 'Q')  {
     switch(kommando)  {
@@ -22,16 +26,16 @@ kommando = menyValg();
       case 'N': eiendom_ny();			break;    
       case 'S': eiendom_slett();   		break;    
       case 'E': eiendom_endre();		break;
-      default:  skriv_meny();			break;
+      default:  skriv_meny2();			break;
     }
-	kommando = menyValg();
+	kommando = meny_valg();
   }
 		break;   
 
       case 'K': sonenr_display();	break;
-      case 'S': kunde();   			
+	  case 'S': ;			
 		  		  skriv_meny3();
-kommando = menyValg();
+kommando = meny_valg();
   
   while (kommando != 'Q')  {
     switch(kommando)  {
@@ -39,17 +43,17 @@ kommando = menyValg();
       case 'N': kunde_ny();		break;    
       case 'S': kunde_slett();   		break;    
       case 'E': kunde_endre();
-      default:  skriv_meny();		break;
+      default:  skriv_meny3();		break;
     }
-	kommando = menyValg();
+	kommando = meny_valg();
   }	  
 		  break; 
       case 'U': utskrift();			break;   
-      default:  skriv_meny();		break;
+      default:  skriv_meny1();		break;
     
-	kommando = menyValg();
+	kommando = meny_valg();
 	}
 
   }
 
-  
+}

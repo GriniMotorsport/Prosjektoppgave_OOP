@@ -68,7 +68,7 @@
   <ItemGroup>
     <ClInclude Include="EIENDOM.h" />
     <ClInclude Include="KUNDE.h" />
-    <ClInclude Include="SKRIVMENY.h" />
+    <ClInclude Include="GLOBALE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

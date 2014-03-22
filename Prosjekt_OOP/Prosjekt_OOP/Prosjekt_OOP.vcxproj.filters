@@ -22,10 +22,10 @@
     <ClInclude Include="KUNDE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SKRIVMENY.h">
+    <ClInclude Include="EIENDOM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EIENDOM.h">
+    <ClInclude Include="GLOBALE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
