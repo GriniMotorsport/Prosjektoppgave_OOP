@@ -14,5 +14,19 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="skriv_meny.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KUNDE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SKRIVMENY.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EIENDOM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

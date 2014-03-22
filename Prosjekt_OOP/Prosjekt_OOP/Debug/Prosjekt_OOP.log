@@ -1,0 +1,38 @@
+﻿Build started 22.03.2014 12:05:13.
+     1>Project "C:\Users\Sigve\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Prosjekt_OOP\Prosjekt_OOP.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GLOBALTEST.h skriv_meny.cpp main.cpp
+         main.cpp
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(8): error C3861: 'skriv_meny1': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(9): error C3861: 'menyValg': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(13): error C3861: 'eiendom': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(14): error C3861: 'skriv_meny2': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(15): error C3861: 'menyValg': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(19): error C3861: 'eiendom_display': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(20): error C3861: 'eiendom_ny': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(21): error C3861: 'eiendom_slett': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(22): error C3861: 'eiendom_endre': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(23): error C3861: 'skriv_meny': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(25): error C3861: 'menyValg': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(29): error C3861: 'sonenr_display': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(30): error C3861: 'kunde': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(31): error C3861: 'skriv_meny3': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(32): error C3861: 'menyValg': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(36): error C3861: 'kunde_display': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(37): error C3861: 'kunde_ny': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(38): error C3861: 'kunde_slett': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(39): error C3861: 'kunde_endre': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(40): error C3861: 'skriv_meny': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(42): error C3861: 'menyValg': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(45): error C3861: 'utskrift': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(46): error C3861: 'skriv_meny': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(48): error C3861: 'menyValg': identifier not found
+     1>c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(54): fatal error C1075: end of file found before the left brace '{' at 'c:\users\sigve\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\main.cpp(4)' was matched
+         skriv_meny.cpp
+         GLOBALTEST.h
+         Generating Code...
+     1>Done Building Project "C:\Users\Sigve\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Prosjekt_OOP\Prosjekt_OOP.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.60
