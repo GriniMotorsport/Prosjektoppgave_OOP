@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D9CCA5E8-03D4-4D3B-A280-32D9DE478FE4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>testing_kode_gudbrand</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6ABBD4FE-8D2A-4825-9327-5517A79B237F</key>
+		<string>https://github.com/GriniMotorsport/Prosjektoppgave_OOP.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Gudbrand/testing_kode_gudbrand/testing_kode_gudbrand.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6ABBD4FE-8D2A-4825-9327-5517A79B237F</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/GriniMotorsport/Prosjektoppgave_OOP.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6ABBD4FE-8D2A-4825-9327-5517A79B237F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6ABBD4FE-8D2A-4825-9327-5517A79B237F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Prosjektoppgave_OOP</string>
+		</dict>
+	</array>
+</dict>
+</plist>
