@@ -24,10 +24,7 @@ char e[]     = "E";				// _____________________________________
 // Hovedprogram
 int main() {
 	
-  char* nvn, * p1, * p2;		// Danner pekere
-  
-  p1 = sone;		// Setter peker til "SONE".
-  p2 = dta;			// Setter peker til ".DTA".	
+  char* nvn;		// Danner pekere	
 
 /* Lager en charArray med en lengde lik filnavnet.
 	<(del 1) + (del 2) + (del 3) + (del 4)>
@@ -37,9 +34,9 @@ int main() {
 		(del 3): Dette er tallet med antall tall filnavnet max kan inneholde.
 		(del 4): Pluss 1 er for og legge til \o på slutten av navnet.
 */
-  nvn = new char[(strlen(p1) + strlen(p2) + 3 + 1)];	
+  nvn = new char[(strlen(sone) + strlen(dta) + 3 + 1)];	
  
-  lagNavn(nvn, p1, p2, 10, 3);	 // Kaller på funksjonen med tilsente parametre
+  lagNavn(nvn, sone, dta, 11, 3);	 // Kaller på funksjonen med tilsente parametre
   ofstream ut (nvn);			 // Opretter en fil med nvn som filvan. 
 
 
