@@ -4,8 +4,8 @@
 using namespace std;
 
 #include "GLOBALE.h"
-#include "KUNDE.h"
-#include "EIENDOM.h"
+//#include "KUNDE.h"
+//#include "EIENDOM.h"
 
 int main()	{
 
@@ -22,33 +22,33 @@ kommando = meny_valg();
 	
   while (kommando != 'Q')  {
     switch(kommando)  {
-      case 'D': eiendom_display();		break;    
-      case 'N': eiendom_ny();			break;    
-      case 'S': eiendom_slett();   		break;    
-      case 'E': eiendom_endre();		break;
-      default:  skriv_meny2();			break;
+      case 'D': 		break;    
+      case 'N': 		break;    
+      case 'S': 		break;    
+      case 'E': 		break;
+      default:  	    break;
     }
 	kommando = meny_valg();
   }
 		break;   
 
-      case 'K': sonenr_display();	break;
+      case 'K': 	break;
 	  case 'S': ;			
 		  		  skriv_meny3();
 kommando = meny_valg();
   
   while (kommando != 'Q')  {
     switch(kommando)  {
-      case 'D': kunde_display();		break;    
-      case 'N': kunde_ny();		break;    
-      case 'S': kunde_slett();   		break;    
-      case 'E': kunde_endre();
-      default:  skriv_meny3();		break;
+      case 'D':		break;    
+      case 'N': 		break;    
+      case 'S':    		break;    
+      case 'E': 
+      default:  		break;
     }
 	kommando = meny_valg();
   }	  
 		  break; 
-      case 'U': utskrift();			break;   
+      case 'U': 			break;   
       default:  skriv_meny1();		break;
     
 	kommando = meny_valg();

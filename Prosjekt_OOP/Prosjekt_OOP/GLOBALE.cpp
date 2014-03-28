@@ -4,7 +4,12 @@
 
 using namespace std;
 
-
+char meny_valg() {
+	char ch;
+	cin >> ch; 
+	
+	return toupper(ch);
+}
 
 void skriv_meny1()  {         //  Skriver meny/lovlige kommandoer til bruker:
   cout << "\n\n\nHva vil du gjøre?\n";
