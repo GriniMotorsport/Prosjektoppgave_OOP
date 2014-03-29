@@ -5,6 +5,10 @@
 void skriv_meny1();
 void skriv_meny2();
 void skriv_meny3();	
+void eiendom();
+void kunde();
+void sone();
+void status();
 char meny_valg();
 void sonenr_display();
 void utskrift();

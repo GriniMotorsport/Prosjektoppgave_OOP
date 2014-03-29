@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "GLOBALE.h"
 
 
@@ -6,28 +7,44 @@ using namespace std;
 
 char meny_valg() {
 	char ch;
-	cin >> ch; 
-	
-	return toupper(ch);
+	cout << "Komando: ";  cin  >> ch;  cin.ignore();  return toupper(ch);
 }
 
 void skriv_meny1()  {         //  Skriver meny/lovlige kommandoer til bruker:
-  cout << "\n\n\nHva vil du gjøre?\n";
-  cout << "\tE - Eiendom\n";
-  cout << "\tS - Skriv ut data om alle eiendommene/oppdragene i en sone.\n";
-  cout << "\tK - Kunde\n";
-  cout << "\tU - Utskrift\n";
-  cout << "\tQ - Quit / avslutt\n";
+  cout << "\n\n\n Hva vil du gjøre?\n"
+          "\tE - Eiendom\n"
+          "\tS - Skriv ut data om alle eiendommene/oppdragene i en sone.\n"
+		  "\tK - Kunde\n"
+		  "\tU - Utskrift\n"
+		  "\tQ - Quit / avslutt\n";
+}
+
+void eiendom() {
+  char kommando;
+	skriv_meny2();
+
+	kommando = meny_valg();
+
+	while (kommando != 'Q') {
+		switch (switch_on)
+		{
+		default:
+			break;
+		}
+	}
+	{
+
+	}
 }
 
 
 void skriv_meny2()  {         //  Skriver meny/lovlige kommandoer til bruker:
-  cout << "\n\n\nHva vil du gjøre?\n";
-  cout << "\tD - Display eiendom\n";
-  cout << "\tN - Opprett en ny eiendom/bolig\n";
-  cout << "\tS - Slett en eiendom\n";
-  cout << "\tE - Endre en eiendom\n";
-  cout << "\tQ - Quit / avslutt\n";
+  cout << "\n\n\n\t----------- Eiendom -----------\n"
+		  "\tD - Display eiendom\n"
+	      "\tN - Opprett en ny eiendom/bolig\n"
+		  "\tS - Slett en eiendom\n"
+		  "\tE - Endre en eiendom\n"
+		  "\tQ - Quit / avslutt\n";
 }
 
 
