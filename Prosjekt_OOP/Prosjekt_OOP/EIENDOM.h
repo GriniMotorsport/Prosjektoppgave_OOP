@@ -12,18 +12,6 @@ public:
 
 }
 
-class Kunde{
-private:
-
-	int tlf; //telephone numere
-		char* navn; //navn av kunde
-		char* adr; // gata adress
-		char* post_adr; //post adress
-		char* Mail; //mail
-		List Intrsone; //Intrsone
-public:
-
-}
 
 class Intersone{
 private:
@@ -35,7 +23,7 @@ private:
 	int eien_t;
 public:
 
-}
+}	;
 
 class Soner{
 private:

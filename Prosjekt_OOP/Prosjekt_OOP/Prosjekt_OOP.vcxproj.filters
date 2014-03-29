@@ -28,5 +28,8 @@
     <ClInclude Include="GLOBALE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="INTRSONE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

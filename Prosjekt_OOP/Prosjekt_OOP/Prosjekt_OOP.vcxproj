@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EIENDOM.h" />
+    <ClInclude Include="INTRSONE.h" />
     <ClInclude Include="KUNDE.h" />
     <ClInclude Include="GLOBALE.h" />
   </ItemGroup>
