@@ -1,5 +1,6 @@
 #if !defined(__EIENDOM_h)
 #define  __EIENDOM_h
+
 class Kunder {
 private:
 	
@@ -39,7 +40,7 @@ public:
 class Soner{
 private:
 	int sist_eindom; //sist innlagte eiendom
-	array sone [];//namber av brukers
+	char sone[];//namber av brukers
 
 public:
 
@@ -81,10 +82,6 @@ class Bolig {
 private:
 public:
 }
-
-
-
-
 
 
 
