@@ -1,16 +1,24 @@
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+#include <stdlib.h>
 #include "GLOBALE.h"
-
+#include "GLOBALE_CONST.h"
+#include "GLOBALE_VARIABLE.h"
 
 using namespace std;
+
+// Variable for siste-brukt
+int sisteE;			// Siste registrerte eiendom
+int fNaaK;			// Forste Nåvarende kunde
+int sInnlK;			// Siste innlagte kunde
 
 char meny_valg() {
 	char ch;
 	cout << "Komando: ";  cin  >> ch;  cin.ignore();  return toupper(ch);
 }
 
-void skriv_meny1()  {         //  Skriver meny/lovlige kommandoer til bruker:
+void skriv_meny()  {         //  Skriver meny/lovlige kommandoer til bruker:
   cout << "\n\n\n Hva vil du gj�re?\n"
           "\tE - Eiendom\n"
           "\tS - Skriv ut data om alle eiendommene/oppdragene i en sone.\n"
@@ -21,9 +29,8 @@ void skriv_meny1()  {         //  Skriver meny/lovlige kommandoer til bruker:
 
 void eiendom() { // ------------------ eiendom() ------------------------------
   char kommando;
-	skriv_meny2();
-
-	kommando = meny_valg();
+  skriv_meny_eiendom();
+  kommando = meny_valg();
 
 	while (kommando != 'Q') {
 		switch (kommando){
@@ -33,14 +40,14 @@ void eiendom() { // ------------------ eiendom() ------------------------------
 		case 'E' : cout << "EE"; break; 
 		default:   cout << "DEFAULT-E"; break;
 		}
+	  break;
 	}
 } // -------------------------------------------------------------------------
 
 void kunde() { // ---------------- kunde() ------------------------------------
   char kommando;
-	skriv_meny3();
-
-	kommando = meny_valg();
+  skriv_meny_kunde();
+  kommando = meny_valg();
 
 	while (kommando != 'Q') {
 		switch (kommando){
@@ -50,38 +57,40 @@ void kunde() { // ---------------- kunde() ------------------------------------
 		case 'E' : cout << "KE"; break; 
 		default:   cout << "DEFAULT-K"; break;
 		}
+	  break;
 	}
 } // ------------------------------------------------------------------------
 
 void sone() { // ---------------- sone() ------------------------------------
   char kommando;
-	skriv_meny3();
+  skriv_meny_sone();
+  kommando = meny_valg();
 
-	kommando = meny_valg();
-
-	while (kommando != 'Q') {
-		switch (kommando){
-		case 'D' : cout << "SD"; break; 
-		default:   cout << "DEFAULT-S"; break;
-		}
+  while (kommando != 'Q') {
+	switch (kommando){
+   	  case 'D' : cout << "SD"; break; 
+	  default:   cout << "DEFAULT-S"; break;
 	}
+   break;
+  }
 } // ------------------------------------------------------------------------
 
 void status() { // ---------------- sone() ------------------------------------
   char kommando;
-	skriv_meny3();
+	skriv_meny_status();
 
 	kommando = meny_valg();
 
 	while (kommando != 'Q') {
 		switch (kommando){
-		case 'D' : cout << "US"; break; 
+		case 'S' : cout << "US"; break; 
 		default:   cout << "DEFAULT-S"; break;
 		}
+	  break;
 	}
 } // ------------------------------------------------------------------------
 
-void skriv_meny2()  {         //  Skriver meny/lovlige kommandoer til bruker:
+void skriv_meny_eiendom()  {         //  Skriver meny/lovlige kommandoer til bruker:
   cout << "\n\n\n\t----------- Eiendom -----------\n"
 		  "\tD - Display eiendom\n"
 	      "\tN - Opprett en ny eiendom/bolig\n"
@@ -90,12 +99,60 @@ void skriv_meny2()  {         //  Skriver meny/lovlige kommandoer til bruker:
 		  "\tQ - Quit / avslutt\n";
 }
 
+void skriv_meny_kunde()  {         //  Skriver meny/lovlige kommandoer til bruker:
+  cout << "\n\n\n\t----------- Kunde -----------\n"
+		  "\tD - Display en kunde\n"
+		  "\tN - Opprett en ny kunde\n"
+		  "\tS - Slett en kunde\n"
+		  "\tE - Endre en kunde\n"
+		  "\tQ - Quit / avslutt\n";
+}
 
-void skriv_meny3()  {         //  Skriver meny/lovlige kommandoer til bruker:
-  cout << "\n\n\nHva vil du gj�re?\n";
-  cout << "\tD - Display en kunde\n";
-  cout << "\tN - Opprett en ny kunde\n";
-  cout << "\tS - Slett en kunde\n";
-  cout << "\tE - Endre en kunde\n";
-  cout << "\tQ - Quit / avslutt\n";
+void skriv_meny_sone() {
+	cout << "\n\n\n\t----------- Sone -----------\n"
+		  "\tD - Display en sone\n";
+}
+
+void skriv_meny_status() {
+	cout << "\n\n\n\t----------- Utskrifter -----------\n"
+		  "\tS - Skriv utskrifter til kunde \n";
+}
+
+// Kode for lagNavn
+void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {  
+  char num[10];					// Hjelpe charArray.
+  itoa(n, num, 10);				// Gjør n om til char og legger i num.
+  int ant = LEN - strlen(num);	/* Får tak i antall ganger char "0" skal
+								   legges til i filnavn før n. */
+  strcpy(t, s1);				    // Legger s1 til filnavn.
+  for (int i = 1; i <= ant; i++) {  // Skriver 0 til filnavn hvis plass.
+	  strcat(t, "0"); }				// ________________________________
+  strcat(t, num);				    // Legger num til filnavn.
+  strcat(t, s2);					// Legger filtype til filnavn.
+}
+
+
+void skriv_fra_fil() { // Les fra fil ------------------------------------------
+  char* nvn;
+  ifstream sisteHent	("SISTE.DTA");			// Skriver siste variable fra fil
+  
+
+
+  if (sisteHent) { // hvis filen finnes
+	 
+	sisteHent >> sisteE;    // Siste registrerte eiendom
+    sisteHent >> fNaaK;     // Forste Nåvarende kunde
+    sisteHent >> sInnlK;	// Siste innlagte kunde
+  }
+  
+  for (int i = 1; i <= MAX_ANT_SON; i++) {
+	nvn = new char[(strlen(SONE) + strlen(dta) + 3 + 1)];
+	lagNavn(nvn, SONE, dta, i, 3);	 // Kaller på funksjonen med tilsente parametre
+	
+	ifstream soneHent (nvn);
+
+	if (soneHent) {
+	  cout << "Finnes";
+	}
+  }
 }

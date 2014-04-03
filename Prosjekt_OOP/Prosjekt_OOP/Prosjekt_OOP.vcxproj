@@ -43,6 +43,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <ShowIncludes>false</ShowIncludes>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -63,13 +65,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GLOBALE.cpp" />
+    <ClCompile Include="LISTTOOL2.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="timer3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BOLIG.h" />
     <ClInclude Include="EIENDOM.h" />
+    <ClInclude Include="GLOBALE_CONST.h" />
+    <ClInclude Include="GLOBALE_VARIABLE.h" />
     <ClInclude Include="INTRSONE.h" />
     <ClInclude Include="KUNDE.h" />
     <ClInclude Include="GLOBALE.h" />
+    <ClInclude Include="KUNDER.h" />
+    <ClInclude Include="LISTTOOL2.h" />
+    <ClInclude Include="SONE.h" />
+    <ClInclude Include="SONER.h" />
+    <ClInclude Include="timer3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,6 +17,12 @@
     <ClCompile Include="GLOBALE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LISTTOOL2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="timer3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KUNDE.h">
@@ -29,6 +35,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="INTRSONE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KUNDER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SONER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SONE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BOLIG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LISTTOOL2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="timer3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLOBALE_VARIABLE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLOBALE_CONST.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

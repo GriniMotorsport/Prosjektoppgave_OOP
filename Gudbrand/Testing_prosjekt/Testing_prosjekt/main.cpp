@@ -36,7 +36,7 @@ int main() {
 */
   nvn = new char[(strlen(sone) + strlen(dta) + 3 + 1)];	
  
-  lagNavn(nvn, sone, dta, 11, 3);	 // Kaller på funksjonen med tilsente parametre
+  lagNavn(nvn, k, dta, 1012, 7);	 // Kaller på funksjonen med tilsente parametre
   ofstream ut (nvn);			 // Opretter en fil med nvn som filvan. 
 
 

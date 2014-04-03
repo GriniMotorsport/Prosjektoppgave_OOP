@@ -1,6 +1,7 @@
+#if !defined(__INTRSONE_h)
+#define  __INTRSONE_h
 
-
-class Intersone{
+class Intersone {
 private:
 	int max_pris;
 	int min_areal;
@@ -10,4 +11,5 @@ private:
 	int eien_t;
 public:
 
-}	;
+};
+#endif
