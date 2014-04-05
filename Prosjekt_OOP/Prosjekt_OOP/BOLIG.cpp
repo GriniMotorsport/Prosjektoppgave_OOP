@@ -5,4 +5,5 @@
 #include "GLOBALE.h"
 #include "GLOBALE_CONST.h"
 #include "GLOBALE_VARIABLE.h"
-#include "KUNDE.h"
+#include "BOLIG.h"
+
