@@ -23,6 +23,12 @@
     <ClCompile Include="timer3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EIENDOM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KUNDE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KUNDE.h">

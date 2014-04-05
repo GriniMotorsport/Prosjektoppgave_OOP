@@ -64,9 +64,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EIENDOM.cpp" />
     <ClCompile Include="GLOBALE.cpp" />
     <ClCompile Include="LISTTOOL2.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="KUNDE.cpp" />
     <ClCompile Include="timer3.cpp" />
   </ItemGroup>
   <ItemGroup>
