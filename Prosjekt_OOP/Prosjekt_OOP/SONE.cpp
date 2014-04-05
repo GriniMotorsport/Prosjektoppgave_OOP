@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include <iomanip>
 #include <fstream>
 #include <cstdlib>
@@ -9,9 +10,26 @@
 #include "EIENDOM.h"
 #include "BOLIG.h"
 
+using namespace std;
 
 void Sone::display()	{
-	Eiendom* eiendom;
+	int antElementer;
+	Eiendom* eiendommen;
+	cout << "\nSonenummer:	" << sonenummer;
+	cout << "\nBeskrivelse:	" << info;
+	antElementer = eiendomsliste->no_of_elements();
+	for (int i = 1; i <= antElementer; i++)	{
+		eiendommen = (Eiendom*) eiendomsliste-> remove_no(i);
+		if (eiendommen->tomt()) 
+			eiendommen->display();
+		else eiendommen->bDisplay();
+		
+		eiendomsliste->add(eiendommen);
+	}
+
+
+
+
 
 
 

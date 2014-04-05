@@ -1,6 +1,6 @@
 #if !defined(__EIENDOM_h)
 #define  __EIENDOM_h
-
+#include "ENUMER.h"
 #include "LISTTOOL2.h"
 
 class Eiendom : public Num_element {
@@ -19,6 +19,9 @@ class Eiendom : public Num_element {
 	Boliginfo info;			// Enum
 
   public:
+	  bool tomt();
+	  void display();
+
 };
 
 #endif

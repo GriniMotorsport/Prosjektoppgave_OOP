@@ -7,3 +7,10 @@
 #include "GLOBALE_VARIABLE.h"
 #include "EIENDOM.h"
 
+
+using namespace std;
+
+void Eiendom::display()	{
+
+
+}

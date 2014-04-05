@@ -11,7 +11,8 @@ private:
 	int antSoverom;
 	Onske onsket;
 public:
-	
+	bool tomt();
+	void bDisplay();
 
 
 };
