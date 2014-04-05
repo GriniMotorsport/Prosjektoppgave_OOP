@@ -1,17 +1,20 @@
 #include <iostream>
 #include <cstring>
 #include "GLOBALE.h"
+#include "SONER.H"
 
 //#include "GLOBALE_VARIABLE.h"
 using namespace std;
 
 // Globale variable
-
+Soner* soner;
 
 int main()	{
 	
+  soner = new Soner;
+
   char kommando;
-  skriv_fra_fil();
+  hent_fra_fil();
 
   skriv_meny();
   kommando = meny_valg();

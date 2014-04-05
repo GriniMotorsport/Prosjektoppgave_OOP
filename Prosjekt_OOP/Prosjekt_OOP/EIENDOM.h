@@ -1,7 +1,11 @@
 #if !defined(__EIENDOM_h)
 #define  __EIENDOM_h
+#include <iostream>
+#include <fstream>
 #include "ENUMER.h"
 #include "LISTTOOL2.h"
+
+using namespace std;
 
 class Eiendom : public Num_element {
   private:
@@ -15,12 +19,13 @@ class Eiendom : public Num_element {
 	char* eiersN;			// Eiers navn
 	char* kommune;			// Kommune navn
 	char* info;				// Beskrivelse av eiendomen
-	Eiendomstype type;		// Enum
-	Boliginfo info;			// Enum
+	//Eiendomstype type;		// Enum
+	//Boliginfo info;			// Enum
 
   public:
+	  Eiendom(int nr, ifstream & inn);
 	  bool tomt();
-	  void display();
+	  //void display();
 
 };
 

@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include "GLOBALE.h"
 #include "GLOBALE_CONST.h"
-#include "GLOBALE_VARIABLE.h"
 #include "BOLIG.h"
 
 using namespace std;

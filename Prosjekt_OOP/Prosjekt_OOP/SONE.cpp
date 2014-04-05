@@ -5,36 +5,58 @@
 #include <cstdlib>
 #include "GLOBALE.h"
 #include "GLOBALE_CONST.h"
-#include "GLOBALE_VARIABLE.h"
 #include "SONE.h"
 #include "EIENDOM.h"
 #include "BOLIG.h"
 
 using namespace std;
 
+// Extern variable
+extern char dta[];
+extern char e[];
+
+// Funksjoner for Sone
+Sone :: Sone(ifstream & inn) {
+	int ant;
+	char a [MAX_TEGN_TEKST];
+	char* nvn;
+
+	Eiendomer = new List(Sorted);
+	//Eiendom* eiendom;
+	inn.getline(a, MAX_TEGN_TEKST);	
+	
+	inn >> ant;
+
+	for (int i = 1; i <= ant; i++) {
+	  int nr;
+	  inn >> nr;
+	  nvn = new char[(strlen(e) + strlen(dta) + 7 + 1)];
+	  lagNavn(nvn, e, dta, nr, 7);
+
+	  ifstream eiendomHent (nvn);
+	  
+	  //eiendom = new Eiendom(nr, inn);
+	}
+	
+	info = a;
+	
+	cout << info << '\n' << ant;
+	
+};
+/*
 void Sone::display()	{
 	int antElementer;
 	Eiendom* eiendommen;
 	cout << "\nSonenummer:	" << sonenummer;
 	cout << "\nBeskrivelse:	" << info;
-	antElementer = eiendomsliste->no_of_elements();
+	antElementer = Eiendomer -> no_of_elements();
 	for (int i = 1; i <= antElementer; i++)	{
-		eiendommen = (Eiendom*) eiendomsliste-> remove_no(i);
+		eiendommen = (Eiendom*) Eiendomer -> remove_no(i);
 		if (eiendommen->tomt()) 
 			eiendommen->display();
-		else eiendommen->bDisplay();
+		else eiendommen->display();
 		
-		eiendomsliste->add(eiendommen);
+		Eiendomer -> add(eiendommen);
 	}
-
-
-
-
-
-
-
-
-
-
-
 }
+*/

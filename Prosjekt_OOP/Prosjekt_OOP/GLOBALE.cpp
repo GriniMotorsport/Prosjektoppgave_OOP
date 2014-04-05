@@ -5,8 +5,13 @@
 #include "GLOBALE.h"
 #include "GLOBALE_CONST.h"
 #include "GLOBALE_VARIABLE.h"
+#include "SONER.h"
 
 using namespace std;
+
+extern Soner* soner;
+extern char dta[];
+extern char SONE[];
 
 // Variable for siste-brukt
 int sisteE;			// Siste registrerte eiendom
@@ -132,7 +137,7 @@ void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {
 }
 
 
-void les_fra_fil() { // Les fra fil ------------------------------------------
+void hent_fra_fil() { // Les fra fil ------------------------------------------
   char* nvn;
   ifstream sisteHent	("SISTE.DTA");			// Skriver siste variable fra fil
   
@@ -152,7 +157,7 @@ void les_fra_fil() { // Les fra fil ------------------------------------------
 	ifstream soneHent (nvn);
 
 	if (soneHent) {
-	  cout << "Finnes";
+	  soner -> hent_sone(i, soneHent);
 	}
   }
 }
