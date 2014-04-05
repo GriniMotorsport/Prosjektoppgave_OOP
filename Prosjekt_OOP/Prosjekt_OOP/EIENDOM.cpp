@@ -22,18 +22,5 @@ void Eiendom::display()	{
 	cout << "\nKommune navn:	" << kommune;
 	cout << "\nBeskrivelse:	"	<< info << endl;
 
-
 }
 
-
-
-
-
-	int areal;				// Areal på tomten/eiendomen
-	char* gateadresse;		// Gateadresse (gate + nr)
-	char* postAdresse;		// Postadresse (nr + sted)
-	char* eiersN;			// Eiers navn
-	char* kommune;			// Kommune navn
-	char* info;				// Beskrivelse av eiendomen
-	Eiendomstype type;		// Enum
-	Boliginfo info;			// Enum

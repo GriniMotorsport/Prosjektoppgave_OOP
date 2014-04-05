@@ -7,3 +7,23 @@
 #include "GLOBALE_VARIABLE.h"
 #include "BOLIG.h"
 
+using namespace std;
+
+void Bolig::bDisplay()	{
+	cout << "\nByggeaar:	" << byggeaar;
+	cout << "\nBrutto areal:	" << bruttoareal;
+	cout << "\nBo areal:	" << boareal;
+	cout << "\nAntall soverom:	" << antSoverom;
+	cout << "\nOnske:	" << onsket;
+	
+
+
+}
+
+
+
+int byggeaar;
+	int bruttoareal;
+	int boareal;
+	int antSoverom;
+	Onske onsket;
