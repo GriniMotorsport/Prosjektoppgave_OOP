@@ -14,7 +14,7 @@ void kunde();					// Går til kommando-valg for kunde
 void sone();					// Går til kommando-valg for sone
 void status();					// Går til kommando-valg for status
 void utskrift();				// Går til kommando-valg for utskrift
-void skriv_fra_fil();			// Leser informasjon fra filer
+void les_fra_fil();			// Leser informasjon fra filer
 
 void lagNavn(char* t, char* s1, char* s2, int n, const int LEN);
 

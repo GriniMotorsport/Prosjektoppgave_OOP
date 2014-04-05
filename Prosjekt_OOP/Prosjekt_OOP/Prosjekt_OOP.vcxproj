@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="BOLIG.h" />
     <ClInclude Include="EIENDOM.h" />
+    <ClInclude Include="ENUMER.h" />
     <ClInclude Include="GLOBALE_CONST.h" />
     <ClInclude Include="GLOBALE_VARIABLE.h" />
     <ClInclude Include="INTRSONE.h" />

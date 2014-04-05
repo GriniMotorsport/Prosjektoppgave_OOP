@@ -1,11 +1,17 @@
+#include "LISTTOOL2.h"
 #if !defined(__SONE_h)
 #define __SONE_h
 
 class Sone {
-  public:
-    char* info;			// Kort beskrivelse for en aktuel sone
+private:
+	char* info;			// Kort beskrivelse for en aktuel sone
+	List* eiendomsliste;
+	int sonenummer;
 
-  private:
+public:
+	void display();
+	
+
 
 };
 

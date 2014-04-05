@@ -1,5 +1,6 @@
 #if !defined(__INTRSONE_h)
 #define  __INTRSONE_h
+#include "ENUMER.h"
 
 class Intersone {
 private:
@@ -9,6 +10,10 @@ private:
 	int tilsen_over;
 	int interessert;
 	int eien_t;
+	Eiendomstype type;		// Enum
+	Boliginfo info;			// Enum
+	Onske onsket;
+
 public:
 
 };

@@ -15,6 +15,8 @@ class Eiendom : public Num_element {
 	char* eiersN;			// Eiers navn
 	char* kommune;			// Kommune navn
 	char* info;				// Beskrivelse av eiendomen
+	Eiendomstype type;		// Enum
+	Boliginfo info;			// Enum
 
   public:
 };

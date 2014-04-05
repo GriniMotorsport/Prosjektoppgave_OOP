@@ -6,3 +6,17 @@
 #include "GLOBALE_CONST.h"
 #include "GLOBALE_VARIABLE.h"
 #include "SONE.h"
+#include "EIENDOM.h"
+#include "BOLIG.h"
+
+
+void Sone::display()	{
+	Eiendom* eiendom;
+
+
+
+
+
+
+
+}

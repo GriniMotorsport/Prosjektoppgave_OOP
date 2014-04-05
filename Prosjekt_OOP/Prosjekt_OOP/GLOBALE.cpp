@@ -132,7 +132,7 @@ void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {
 }
 
 
-void skriv_fra_fil() { // Les fra fil ------------------------------------------
+void les_fra_fil() { // Les fra fil ------------------------------------------
   char* nvn;
   ifstream sisteHent	("SISTE.DTA");			// Skriver siste variable fra fil
   
