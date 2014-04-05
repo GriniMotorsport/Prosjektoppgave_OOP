@@ -19,11 +19,3 @@ void Bolig::bDisplay()	{
 
 
 }
-
-
-
-int byggeaar;
-	int bruttoareal;
-	int boareal;
-	int antSoverom;
-	Onske onsket;
