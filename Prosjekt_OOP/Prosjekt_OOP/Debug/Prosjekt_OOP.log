@@ -1,14 +1,37 @@
-﻿Build started 06.04.2014 15:21:04.
-     1>Project "C:\Users\GriniMotorsport\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Prosjekt_OOP\Prosjekt_OOP.vcxproj" on node 2 (Build target(s)).
+﻿Build started 06.04.2014 15:41:38.
+     1>Project "C:\Users\Kåre\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Prosjekt_OOP\Prosjekt_OOP.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt BOLIG.cpp EIENDOM.cpp SONE.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt BOLIG.cpp EIENDOM.cpp GLOBALE.cpp INTRSONE.cpp KUNDER.cpp LISTTOOL2.cpp main.cpp KUNDE.cpp SONE.cpp SONER.cpp timer3.cpp
+         timer3.cpp
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\timer3.cpp(33): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\time.inl(112) : see declaration of 'localtime'
+         SONER.cpp
          SONE.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
+         KUNDE.cpp
+         main.cpp
+         LISTTOOL2.cpp
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\listtool2.cpp(72): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\listtool2.cpp(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
+         KUNDER.cpp
+         INTRSONE.cpp
+         GLOBALE.cpp
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\globale.cpp(129): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdlib.h(909) : see declaration of 'itoa'
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\globale.cpp(132): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(110) : see declaration of 'strcpy'
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\globale.cpp(134): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(115) : see declaration of 'strcat'
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\globale.cpp(135): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(115) : see declaration of 'strcat'
+     1>c:\users\kåre\documents\github\prosjektoppgave_oop\prosjekt_oop\prosjekt_oop\globale.cpp(136): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(115) : see declaration of 'strcat'
          EIENDOM.cpp
          BOLIG.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\GriniMotorsport\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\GriniMotorsport\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\GriniMotorsport\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.lib" /MACHINE:X86 Debug\BOLIG.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Kåre\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Kåre\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Kåre\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.lib" /MACHINE:X86 Debug\BOLIG.obj
          Debug\EIENDOM.obj
          Debug\GLOBALE.obj
          Debug\INTRSONE.obj
@@ -19,10 +42,9 @@
          Debug\SONE.obj
          Debug\SONER.obj
          Debug\timer3.obj
-     1>SONE.obj : error LNK2019: unresolved external symbol "public: bool __thiscall Eiendom::tomt(void)" (?tomt@Eiendom@@QAE_NXZ) referenced in function "public: void __thiscall Sone::display(void)" (?display@Sone@@QAEXXZ)
-     1>C:\Users\GriniMotorsport\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.exe : fatal error LNK1120: 1 unresolved externals
-     1>Done Building Project "C:\Users\GriniMotorsport\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Prosjekt_OOP\Prosjekt_OOP.vcxproj" (Build target(s)) -- FAILED.
+         Prosjekt_OOP.vcxproj -> C:\Users\Kåre\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Debug\Prosjekt_OOP.exe
+     1>Done Building Project "C:\Users\Kåre\Documents\GitHub\Prosjektoppgave_OOP\Prosjekt_OOP\Prosjekt_OOP\Prosjekt_OOP.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.15
+Time Elapsed 00:00:14.71

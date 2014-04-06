@@ -57,6 +57,7 @@ void Sone::display()	{
 			eiendommen->display();
 		else eiendommen->display();
 		
+
 		Eiendomer -> add(eiendommen);
 	}
 }

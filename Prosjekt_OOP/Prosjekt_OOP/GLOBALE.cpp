@@ -136,6 +136,19 @@ void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {
   strcat(t, s2);					// Legger filtype til filnavn.
 }
 
+// Les filer
+int les (char txt, int min, int max) {
+	int t;
+	
+	cout << txt;  cin >> t;
+
+	while (t < min || t > max) {
+	  cout << "\n\tUlovelig vedri!\n"
+		   << txt;  cin >> t;
+	} 
+  return t;
+}
+
 
 void hent_fra_fil() { // Les fra fil ------------------------------------------
   char* nvn;

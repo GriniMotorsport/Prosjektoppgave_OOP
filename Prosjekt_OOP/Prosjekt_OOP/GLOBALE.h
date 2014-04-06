@@ -16,6 +16,8 @@ void status();					// Går til kommando-valg for status
 void utskrift();				// Går til kommando-valg for utskrift
 void hent_fra_fil();			// Leser informasjon fra filer
 
+int les (char txt, int min, int max);
+
 void lagNavn(char* t, char* s1, char* s2, int n, const int LEN);
 
 char meny_valg();				// Funksjon som henter kommandovalg fra bruker
