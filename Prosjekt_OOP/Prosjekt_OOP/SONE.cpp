@@ -22,8 +22,9 @@ Sone :: Sone(ifstream & inn) {
 	char* nvn;
 
 	Eiendomer = new List(Sorted);
-	//Eiendom* eiendom;
-	inn.getline(a, MAX_TEGN_TEKST);	
+	Eiendom* eiendom;
+	inn.getline(a, MAX_TEGN_TEKST);	  
+	info = a;
 	
 	inn >> ant;
 
@@ -35,10 +36,10 @@ Sone :: Sone(ifstream & inn) {
 
 	  ifstream eiendomHent (nvn);
 	  
-	  //eiendom = new Eiendom(nr, inn);
+	  eiendom = new Eiendom(nr, inn);
 	}
 	
-	info = a;
+	
 	
 	cout << info << '\n' << ant;
 	

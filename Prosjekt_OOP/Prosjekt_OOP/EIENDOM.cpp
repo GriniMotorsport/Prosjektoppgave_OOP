@@ -13,7 +13,7 @@ Eiendom :: Eiendom(int nr, ifstream & inn) : Num_element(nr) {
 
 };
 
-/*
+
 void Eiendom::display()	{
 	cout << "\nDato for opprettelse av tomten/eiendom:	" << dato;
 	cout << "\nBruks-nummer:	" << bruksNr;
@@ -27,5 +27,5 @@ void Eiendom::display()	{
 	cout << "\nBeskrivelse:	"	<< info << endl;
 
 }
-*/
+
 
