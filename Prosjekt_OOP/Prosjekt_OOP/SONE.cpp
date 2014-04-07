@@ -36,12 +36,10 @@ Sone :: Sone(ifstream & inn) {
 
 	  ifstream eiendomHent (nvn);
 	  
-	  eiendom = new Eiendom(nr, inn);
+	  eiendom = new Eiendom(nr, eiendomHent);
 	}
 	
-	
-	
-	cout << info << '\n' << ant;
+	cout << "\n\n" << info << '\n' << ant;
 	
 };
 /*

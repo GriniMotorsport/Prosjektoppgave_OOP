@@ -15,18 +15,12 @@ void Soner :: hent_sone(int nr, ifstream & inn) {
 	soner[nr] = new Sone(inn);
 	
 }
-
+/*
 void Sone :: vise_sone(){
 	int nr;
 	nr = funksjon som return int;
 	cout << "Skriv";  cin >> nr;
 	
 	sone[nr].display;
- 
-
-
-
-
-
-
 }
+*/

@@ -18,7 +18,7 @@ class Soner {
   public:
 	Soner();
 	void hent_sone(int nr, ifstream & inn);
-	void Sone :: vise_sone();
+	void vis_sone();
 
 
 
