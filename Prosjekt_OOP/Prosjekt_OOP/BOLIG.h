@@ -1,21 +1,24 @@
-#if !defined (__BOLIG_h)
+#if !defined (__BOLIG_h)	// Start på fil
 #define __BOLIG_h
+
+// Include .h filer
 #include "EIENDOM.h"
 #include "ENUMER.h"
 
-class Bolig : public Eiendom {
+using namespace std;
+
+class Bolig : public Eiendom { // Bolig klassen.  En subclasse av Eiendom
 private:
-	int byggeaar;
-	int bruttoareal;
-	int boareal;
-	int antSoverom;
-	Onske onsket;
+	int byggeaar;					// Byggeår (AAAA)
+	int bruttoareal;				// Bruttoareal
+	int boareal;					// Boareal
+	int antSoverom;					// Ant soverom
+	int onsket;						// Om til salgs / leie eller begge deler
+	char type;						// Hjelpe char for og si om Bolig eller ei
+
 public:
-	bool tomt();
-	void bDisplay();
-
-
+	Bolig(int nr, ifstream & inn);	// Constructor som henter fra fil
+	void Display();					// Skriver ut sine variable
 };
 
-
-#endif
+#endif	// Slutt på fil	

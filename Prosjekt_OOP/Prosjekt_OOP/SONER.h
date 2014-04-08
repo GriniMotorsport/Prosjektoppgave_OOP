@@ -1,28 +1,26 @@
-#if !defined(__SONER_h)
+#if !defined(__SONER_h)	// Start på fil
 #define __SONER_h
 
-// Include filer 
+// Include fra biblotek
 #include <iostream>
 #include <fstream>
+// Include .h filer
 #include "SONE.h"
 #include "GLOBALE_CONST.h"
 
 using namespace std;
 
-// Soner class
-class Soner {
+class Soner { // Soner-Class
   private:
 	int nrSE;					// Nr til siste innlagte eiendom
 	Sone* soner[MAX_ANT_SON];	// Max antall soner
 
   public:
-	Soner();
-	void hent_sone(int nr, ifstream & inn);
-	void vis_sone();
-
-
+	Soner();								// Soner constructor
+	void hent_sone(int nr, ifstream & inn);	// Constructor som henter fra fil
+	void vis_sone(int nr);					// Viser eksakt sone fra input
+	void hent_eiendom(int nr);				// Henter eksakt eiendom
 
 };
 
-
-#endif
+#endif	// Slutt på fil

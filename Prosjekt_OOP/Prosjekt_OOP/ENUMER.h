@@ -1,8 +1,10 @@
-#if !defined(__ENUMER_h)
+#if !defined(__ENUMER_h)	// Start på fil
 #define  __ENUMER_h
+					// Enum for de forskjellige typene for eiendomer
+enum Eiendomstype { Tomt, Enebolig, Rekkehus, Leilighet, Hytte };
+					// Enum for hva slags marked som eiendomen ligger under
+enum Onske { Salg, Leie, Begge };
+					// Enum for når kunde hvil få tildelt svar på IntrSoner
+enum Boliginfo { Ukentlig, Snarest };
 
-enum Eiendomstype {tomt, enebolig, rekkehus, leilighet, hytte};
-enum Onske {salg, leie, begge};
-enum Boliginfo {ukentlig, snarest};
-
-#endif
+#endif	// Slutt på fil

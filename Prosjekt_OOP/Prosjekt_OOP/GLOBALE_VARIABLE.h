@@ -1,4 +1,4 @@
-#if !defined (__GLOBALE_VARIABLE_H)
+#if !defined (__GLOBALE_VARIABLE_H)	// Start på fil
 #define  __GLOBALE_VARIABLE_H
 
 // Variable for filoppretting
@@ -14,4 +14,4 @@ extern int fNaaK;			// Forste Nåvarende kunde
 extern int sInnlK;			// Siste innlagte kunde
 
 
-#endif
+#endif	// Slutt på fil

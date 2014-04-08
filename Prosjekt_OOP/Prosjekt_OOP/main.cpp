@@ -1,35 +1,41 @@
+				////////// MAIN.cpp //////////
+// Include fra biblotek
 #include <iostream>
 #include <cstring>
+// Include .h filer
 #include "GLOBALE.h"
-#include "SONER.H"
+#include "SONER.h"
+#include "KUNDEr.h"
 
-//#include "GLOBALE_VARIABLE.h"
 using namespace std;
 
-// Globale variable
+// Globale objekter
 Soner* soner;
+Kunder* kunder;
 
-int main()	{
+// Int Main - Hovedprogram
+int main() {
 	
-  soner = new Soner;
+  soner = new Soner;		// Lager nytt objekt soner
+  kunder = new Kunder;		// Lager nytt objekt kunder
 
   char kommando;
-  hent_fra_fil();
+  hent_fra_fil();			// Hent fra fil - funksjonen
 
-  skriv_meny();
-  kommando = meny_valg();
+  skriv_meny();				// Skriver meny / kommandoforslag
+  kommando = meny_valg();	// Henter kommando fra bruker
 
-  while (kommando != 'Q')  {
+  while (kommando != 'Q') {		// Kjører så lenge ikke Q
     switch(kommando)  {
-	  case 'E' : eiendom();      break;    
-      case 'K' : kunde();        break;
-	  case 'S' : sone();        break; 
-	  case 'U' : status();       break;   
-      default:				     break;
+	  case 'E' : eiendom();   break;    // Eiendom
+      case 'K' : kunde();     break;	// Kunde
+	  case 'S' : sone();      break;	// Sone
+	  case 'U' : status();    break;	// Utskrift
+      default:	              break;	// Default
 	}
-   skriv_meny();
-   kommando = meny_valg();
+   skriv_meny();			// Skriver meny / kommandoforslag
+   kommando = meny_valg();	// Henter kommando fra bruker
   }
-  return 0;
+ return 0;
 }
 // ******************************** E N D *********************************** //

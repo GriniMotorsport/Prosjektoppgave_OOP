@@ -1,13 +1,16 @@
-#if !defined(__EIENDOM_h)
+#if !defined(__EIENDOM_h)	// Start på fil
 #define  __EIENDOM_h
+
+// Include fra biblotek
 #include <iostream>
 #include <fstream>
+// Include .h filer
 #include "ENUMER.h"
 #include "LISTTOOL2.h"
 
 using namespace std;
 
-class Eiendom : public Num_element {
+class Eiendom : public Num_element { // Eiendom-classen
   private:
     int dato;				// Dato for opprettelse av tomten/eiendom
 	int bruksNr;			// Bruks-nummer (4-sifret)
@@ -19,14 +22,14 @@ class Eiendom : public Num_element {
 	char* eiersN;			// Eiers navn
 	char* kommune;			// Kommune navn
 	char* info;				// Beskrivelse av eiendomen
-	Eiendomstype type;		// Enum
-	Boliginfo boligI;		// Enum
+	int eiendomType;		// Enum verdi
 
   public:
-	  Eiendom(int nr, ifstream & inn);
-	  bool tomt();
-	  void display();
-
+	  Eiendom(int nr, ifstream & inn);	// Constructor som henter fra fil
+	  void Display();					// Skriver ut sine variable
+	  bool finnes_nr(int nr);			/* Fuksjon som tester input fra
+										   bruker for Eiendom-Nr eller
+										   oppdrags-Nr                   */
 };
 
-#endif
+#endif	// Slutt på fil
