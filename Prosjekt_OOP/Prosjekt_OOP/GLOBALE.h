@@ -20,8 +20,12 @@ void utskrift();				// Går til kommando-valg for utskrift
 void hent_fra_fil();			// Leser informasjon fra filer
 
 // Globale Display-funksjoner
+void Kunde_Display();
 void Sone_Display();
 void Eiendom_Display();
+
+// Ny-funksjoner
+void Eiendom_Ny();
 
 // Les-funksjoner
 int les (char txt, int min, int max);		// Returnerer int verdi

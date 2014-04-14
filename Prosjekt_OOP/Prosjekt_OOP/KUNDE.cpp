@@ -9,6 +9,7 @@
 #include "GLOBALE_CONST.h"
 #include "KUNDE.h"
 #include "INTRSONE.h"
+#include "KUNDER.h"
 
 using namespace std;
 
@@ -39,4 +40,24 @@ Kunde :: Kunde (int nr, ifstream & inn) : Num_element(nr) {
 	inn >> soneNr;							// Spørr etter neste object
   }
 }
+
+void Kunde :: sjekkInfo(char* navn_nr)	{
+	Intrsone* intrsonen;
+	int nummer = atoi(navn_nr);
+	int antIntrsoner = IntrsonerListe-> no_of_elements();
+
+	if(strcmp(navn_nr, navn) == 0 || nummer == kundenummer)	{
+		kunde_display();
+		for(int i = 1; i <= antIntrsoner; i++)	{
+			intrsonen = (Intrsone*) IntrsonerListe->remove_no(i);
+			intrsonen->display();
+			IntrsonerListe->add(intrsonen);
+		}
+
+
+	}
+
+}
+
+
 // ************************************************************************* //

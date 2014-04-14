@@ -19,6 +19,8 @@ class Kunder : public Num_element { // Kunder classen
   public:
 	Kunder();						// Kunder constructor			
 	Kunder(int nr, ifstream & inn);	// Constructor som henter fra fil
+	void Kunde_Display(char* navn_nr);
+	
 
 };
 

@@ -30,4 +30,19 @@ Kunder :: Kunder(int nr, ifstream & inn) : Num_element(nr) {
   kunde = new Kunde(nr, inn);			// Legger til hjelpe objekt 
   KundeListe -> add(kunde);				// inn i list med data
 }
+// Displayer en kunde
+void Kunder :: Kunde_Display(char* navn_nr)	{
+	Kunde* kunden;
+	int antallkunder = KundeListe-> no_of_elements();	//Finner antall kunder
+	
+	for(int i = 1; i <= antallkunder; i++)	{
+		kunden = (Kunde*) KundeListe->remove_no(i);
+		kunden-> sjekkInfo(navn_nr);
+		KundeListe->add(kunden);
+	}
+
+
+}
+
+
 // ************************************************************************* //

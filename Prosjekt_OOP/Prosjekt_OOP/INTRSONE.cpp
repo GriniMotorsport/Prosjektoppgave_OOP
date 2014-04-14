@@ -29,4 +29,20 @@ Intrsone :: Intrsone(int nr, ifstream & inn) : Num_element(nr) {
 		 << tilsen_Bolig << '\n';
 	*/
 }
+
+void Intrsone :: display()	{
+	char* Eiendomstype[] = {"Tomt", "Enebolig", "Rekkehus", "Leilighet", "Hytte"};
+	char* Onske[] = {"Salg", "Leie", "Begge"};
+	char* Boliginfo[] = {"Ukentlig", "Snarest"};
+	cout << "\n\n Interessesone:	";
+	cout << "\nSonenummer:	" << sonenummer;
+	cout << "\nMakspris:	" << max_pris;
+	cout << "\nMinimum areal:	" << min_areal;
+	cout << "\nMinimum soverom:	" << minA_rom;
+	cout << "\nEiendomtype:	" << Eiendomstype[eien_t];
+	cout << "\nInteressert i: " << Onske[interessert];
+	cout << "\nTilsending:	" << Boliginfo[tilsen_Bolig];
+		
+}
+
 // ************************************************************************* //

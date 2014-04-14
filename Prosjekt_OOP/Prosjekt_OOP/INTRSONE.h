@@ -12,15 +12,17 @@ using namespace std;
 
 class Intrsone : public Num_element { // Intrsone classen
   private:
+	int sonenummer;			// Sonenummer
 	int max_pris;			// Max pris 
 	int min_areal;			// Min areal
 	int minA_rom;			// Min ant soverom
-	int eien_t;				// Eiendomtype
-	int interessert;		// Interesert i til: salg, leie eller begge-deler
-	int tilsen_Bolig;		// Når info om boliger skal bli sendt til kunden
+	Eiendomstype eien_t;	// Eiendomtype
+	Onske interessert;		// Interesert i til: salg, leie eller begge-deler
+	Boliginfo tilsen_Bolig;		// Når info om boliger skal bli sendt til kunden
 	
 
 public:
 	Intrsone(int nr, ifstream & inn);	// Constructor som henter fra fil
+	void display();
 };
 #endif	// Slutt på fil

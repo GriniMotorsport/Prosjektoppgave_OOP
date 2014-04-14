@@ -52,7 +52,7 @@ void eiendom() {								// under kategorien eiendom
   while (kommando != 'Q') {		// Kjører så lenge ikke Q skrives inn
     switch (kommando){
       case 'D' : Eiendom_Display();  break;		// Eiendom_Display
-   	  case 'N' : cout << "EN"; break;				// Eiendom_Ny
+   	  case 'N' : Eiendom_Ny(); break;				// Eiendom_Ny
 	  case 'S' : cout << "ES"; break;				// Eiendom_Slett
 	  case 'E' : cout << "EE"; break;				// Eiendom_Endre
 	  default:   cout << "DEFAULT-E"; break;		// Deafulte
@@ -141,7 +141,7 @@ void skriv_meny_status() {
 		  "\tS - Skriv utskrifter til kunde \n";
 }
 
-// Kode for lagNavn
+// Kode for lagNavn 
 void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {  
   char num[10];					// Hjelpe charArray.
   itoa(n, num, 10);				// Gjør n om til char og legger i num.
@@ -203,6 +203,18 @@ void Eiendom_Display() {
 	}
   }  
 }
+
+// Ny eiendom
+void Eiendom_Ny()	{
+
+
+}
+
+
+
+// Kunde_Display - Skriver ut data om ønsket kunde
+void Kunde_Display() {
+
 
 // Hent_fra_fil - henter all data fra filer til programmet og legger de inn
 void hent_fra_fil() { 
