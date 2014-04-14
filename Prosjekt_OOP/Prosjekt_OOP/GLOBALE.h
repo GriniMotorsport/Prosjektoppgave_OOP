@@ -24,11 +24,10 @@ void Kunde_Display();
 void Sone_Display();
 void Eiendom_Display();
 
-// Ny-funksjoner
-void Eiendom_Ny();
 
 // Les-funksjoner
-int les (char txt, int min, int max);		// Returnerer int verdi
+int les (char txt[STRLEN], int min, int max);		// Returnerer int verdi
+void les(char t[], char s[], const int LEN);
 
 // LagNavn funksjoner som lager et filnavn sammensatt av parametre
 void lagNavn(char* t, char* s1, char* s2, int n, const int LEN);

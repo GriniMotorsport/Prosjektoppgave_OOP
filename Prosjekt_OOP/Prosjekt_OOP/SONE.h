@@ -19,6 +19,7 @@ public:
 	Sone(ifstream & inn);		// Constructor som henter fra fil	
 	void display(int nr);		// Skriver ut sine variable
 	void hent_eiendom(int nr);	// Henter eksakt eiendom etter sortert nummer
+	void eiendom_ny(int onr);
 
 };
 

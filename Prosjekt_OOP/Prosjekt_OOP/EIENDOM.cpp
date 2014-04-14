@@ -9,6 +9,7 @@
 #include "GLOBALE_CONST.h"
 #include "EIENDOM.h"
 #include "ENUMER.h"
+#include "timer3.h"
 
 using namespace std;
 
@@ -64,6 +65,20 @@ void Eiendom::Display()	{
 bool Eiendom :: finnes_nr(int nr) {
 	if (number == nr) return true;			// Hvis like.		Return true
 	return false;							// Hvis ikke-like.	Return false
+}
+
+Eiendom :: Eiendom(int oppdrnr)	: Num_element(oppdrnr)	{
+	char temp[STRLEN];
+	Timer* timer3 = new Timer;
+	dato = timer3->hentDato();
+	delete timer3;
+
+	bruksNr = les("Bruksnummer", 1000, 9999);
+	saksB = les("Saksbehandlernummer", 0, 1000); 
+	pris = les ("Pris", 1, 100000000);
+	areal = les ("Areal", 1, 1000);
+
+	les("Gateadresse:", temp, STRLEN)
 }
 
 // ************************************************************************* //

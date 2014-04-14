@@ -12,6 +12,7 @@
 #include "EIENDOM.h"
 #include "BOLIG.h"
 
+
 using namespace std;
 
 // Extern variable
@@ -72,4 +73,24 @@ void Sone :: hent_eiendom(int nr) {
 	Eiendomer -> add(eiendom);		// Legger den tilbake uansett
   }
 }
+
+// Lager ny eiendom inne i sonen
+void Sone :: eiendom_ny(int onr)	{
+	Eiendom* eiendommen;
+	char valg;
+
+	cout << "\n\n[B]olig eller [E]iendom?"; valg = meny_valg();
+	if (valg == 'E')
+		eiendommen = new Eiendom(onr);
+	else if ( valg == 'B')
+		eiendommen = new Bolig(onr);
+
+	Eiendomer->add(eiendommen);
+	
+
+}
+
+
+
+
 // ************************************************************************* //

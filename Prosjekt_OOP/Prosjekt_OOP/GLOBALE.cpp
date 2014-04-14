@@ -10,12 +10,10 @@
 #include "GLOBALE_VARIABLE.h"
 #include "SONER.h"
 #include "KUNDER.h"
+#include "main.cpp"
 
 using namespace std;
 
-// Externe objekter
-extern Soner* soner;
-extern Kunder* kunder;
 
 // Externe char variable
 extern char dta[];
@@ -46,13 +44,15 @@ void skriv_meny()  {         //  Skriver meny/lovlige kommandoer til bruker:
 // Eiendom - funksjonen som har en switch til og kunne velge mellom funksjoner
 void eiendom() {								// under kategorien eiendom
   char kommando;
+  int sonenr;
   skriv_meny_eiendom();							// Skriver meny
   kommando = meny_valg();						// Henter komando
 
   while (kommando != 'Q') {		// Kjører så lenge ikke Q skrives inn
     switch (kommando){
-      case 'D' : Eiendom_Display();  break;		// Eiendom_Display
-   	  case 'N' : Eiendom_Ny(); break;				// Eiendom_Ny
+      case 'D' : Eiendom_Display();  break;			// Eiendom_Display
+	  case 'N' : sonenr = les("Skriv inn sonenummer",1 ,100);
+		  soner.Eiendom_Ny(sonenr); break;			// Eiendom_Ny
 	  case 'S' : cout << "ES"; break;				// Eiendom_Slett
 	  case 'E' : cout << "EE"; break;				// Eiendom_Endre
 	  default:   cout << "DEFAULT-E"; break;		// Deafulte
@@ -155,16 +155,24 @@ void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {
 }
 
 // Les - funksjon med retun int
-int les (char* txt, int min, int max) {
+int les (char txt[STRLEN], int min, int max) {
   int t;								// Hjelpe variable
-  cout << txt;  cin >> t;				// Skriver ut tekst og lar bruke skrive inn
+  cout << txt << '(' << min << '-' << max << "): ";  cin >> t;	// Skriver ut tekst og lar bruke skrive inn
 	
   while (t < min || t > max) {        // Hvis verdi er i intervalet fra min 
-    cout << "\n\tUlovelig vedri!\n"	// til max så returnere funskjonen t
+    cout << "\n\tUlovelig verdi!\n"	// til max så returnere funskjonen t
    	     << txt;  cin >> t;			// Looper til riktig interval
   } 
   return t;
 }
+
+// Les tekst
+void les(char t[], char s[], const int LEN)	{
+	do {
+		cout << '\t' << t << ":	";
+		cin.getline(s, LEN);
+	} while (strlen(s) == 0);
+	}
 
 // Sone_Display - Skriver ut data om ønsket sone
 void Sone_Display() {
@@ -203,13 +211,6 @@ void Eiendom_Display() {
 	}
   }  
 }
-
-// Ny eiendom
-void Eiendom_Ny()	{
-
-
-}
-
 
 
 // Kunde_Display - Skriver ut data om ønsket kunde

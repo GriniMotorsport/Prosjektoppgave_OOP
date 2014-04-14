@@ -9,6 +9,7 @@
 #include "GLOBALE_CONST.h"
 #include "SONER.h"
 #include "SONE.h"
+#include "GLOBALE_VARIABLE.h"
 
 using namespace std;
 
@@ -17,18 +18,29 @@ Soner :: Soner() {}
 
 // Soner_Hent_Sone - Henter data om sone og legger på riktig plass i Array
 void Soner :: hent_sone(int nr, ifstream & inn) {
-  soner[nr] = new Sone(inn);
+  sonene[nr] = new Sone(inn);
 }
 
 // Soner_Vis_Sone - Viser en angitt sone som bruker har skrevet inn
 void Soner :: vis_sone(int nr) {
-  soner[nr] -> display(nr);
+  sonene[nr] -> display(nr);
 }
 
 // Soner_Hent_Eiendom - Henter eiendom for soner
 void Soner :: hent_eiendom(int nr) {
   for (int i = 1; i <= MAX_ANT_SON; i++) {
-	soner[i] -> hent_eiendom(nr);	
+	sonene[i] -> hent_eiendom(nr);	
   }
 }
+
+// Ny eiendom
+void Soner :: Eiendom_Ny(int sonenr)	{
+	sisteE++;
+	if (sonene[sonenr])	{
+		sonene[sonenr]->eiendom_ny(sisteE);
+	}
+
+
+}
+
 // ************************************************************************* //

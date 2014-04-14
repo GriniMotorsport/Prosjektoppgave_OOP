@@ -10,14 +10,11 @@
 using namespace std;
 
 // Globale objekter
-Soner* soner;
-Kunder* kunder;
+Soner soner;
+Kunder kunder;
 
 // Int Main - Hovedprogram
 int main() {
-	
-  soner = new Soner;		// Lager nytt objekt soner
-  kunder = new Kunder;		// Lager nytt objekt kunder
 
   char kommando;
   hent_fra_fil();			// Hent fra fil - funksjonen
