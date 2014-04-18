@@ -19,6 +19,7 @@ private:
 public:
 	Bolig(int nr, ifstream & inn);	// Constructor som henter fra fil
 	void Display();					// Skriver ut sine variable
+	Bolig(int oppdrnr);
 };
 
 #endif	// Slutt på fil	

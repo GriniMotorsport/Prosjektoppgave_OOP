@@ -9,6 +9,25 @@
 #include "BOLIG.h"
 
 using namespace std;
+
+Bolig::Bolig(int oppdrnr) : Eiendom(oppdrnr)	{
+	char valg;
+			 
+	byggeaar = les("Byggeår", 1700, 2014);
+	bruttoareal = les("Bruttoareal", 1, 2000);
+	boareal = les("Boareal", 1, 2000);
+	antSoverom = les("Antall soverom", 1, 30);
+	
+	cout << "\nTil [S]algs eller ut[L]eie:	" ;
+	valg = meny_valg();
+	if  (valg == 'S')
+		onsket = Salg;
+	else if (valg == 'L')
+		onsket = Leie;
+
+
+
+
 // Bolig-constructor som henter data fra fil
 Bolig :: Bolig(int nr, ifstream & inn) : Eiendom(nr, inn) {
    inn >> type;					
