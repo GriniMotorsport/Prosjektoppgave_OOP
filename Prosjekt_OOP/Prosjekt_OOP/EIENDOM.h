@@ -29,10 +29,10 @@ class Eiendom : public Num_element { // Eiendom-classen
 	  Eiendom(int oppdrnr);
 	  Eiendom(int nr, ifstream & inn);	// Constructor som henter fra fil
 	  void Display();					// Skriver ut sine variable
-	  bool finnes_nr(int nr);			/* Fuksjon som tester input fra
+	  bool finnes_nr(int nr);	/* Fuksjon som tester input fra
 	  								   bruker for Eiendom-Nr eller
 										   oppdrags-Nr                   */
-
+	  void settEiendomtype(char s);
 };
 
 #endif	// Slutt på fil

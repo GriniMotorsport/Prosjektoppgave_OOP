@@ -60,6 +60,17 @@ void Eiendom::Display()	{
   }
 }
 
+void Eiendom::settEiendomtype(char s) {
+	
+	switch(s)	{
+	case 'T': eiendomType = Tomt;		break;
+	case 'E': eiendomType = Enebolig;	break;
+	case 'R': eiendomType = Rekkehus;	break;
+	case 'L': eiendomType = Leilighet;	break;
+	case 'H': eiendomType = Hytte;		break;
+	}
+}
+
 /* Eiendom-finnes brukes for og se om number som er sortert etter i listen med
    er lik nr som brukeren skriver i input*/
 bool Eiendom :: finnes_nr(int nr) {
@@ -69,16 +80,41 @@ bool Eiendom :: finnes_nr(int nr) {
 
 Eiendom :: Eiendom(int oppdrnr)	: Num_element(oppdrnr)	{
 	char temp[STRLEN];
+	char nisd;
 	Timer* timer3 = new Timer;
 	dato = timer3->hentDato();
 	delete timer3;
 
 	bruksNr = les("Bruksnummer", 1000, 9999);
-	saksB = les("Saksbehandlernummer", 0, 1000); 
+	saksB = les("Saksbehandlernummer", 1, 1000); 
 	pris = les ("Pris", 1, 100000000);
 	areal = les ("Areal", 1, 1000);
 
-	les("Gateadresse:", temp, STRLEN)
+	les("Gateadresse:", temp, STRLEN);
+	gateadresse = new char[strlen(temp)+1];
+	strcpy(gateadresse,temp);
+
+	les("Postadresse:", temp, STRLEN);
+	postAdresse = new char[strlen(temp)+1];
+	strcpy(postAdresse,temp);
+
+	les("Eiers navn:", temp, STRLEN);
+	eiersN = new char[strlen(temp)+1];
+	strcpy(eiersN,temp);
+
+	les("Kommune:", temp, STRLEN);
+	kommune = new char[strlen(temp)+1];
+	strcpy(kommune,temp);
+
+	les("Beskrivelse:", temp, STRLEN);
+	info = new char[strlen(temp)+1];
+	strcpy(info,temp);
+
+	cout << "\nEiendomstype: [T]omt, [E]nebolig, [R]ekkehus, [L]eilighet, [H]ytte: ";
+	nisd = meny_valg();
+	settEiendomtype(nisd);
+
+
 }
 
 // ************************************************************************* //

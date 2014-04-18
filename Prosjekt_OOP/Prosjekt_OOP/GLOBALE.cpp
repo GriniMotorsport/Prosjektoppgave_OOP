@@ -157,7 +157,7 @@ void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {
 // Les - funksjon med retun int
 int les (char txt[STRLEN], int min, int max) {
   int t;								// Hjelpe variable
-  cout << txt << '(' << min << '-' << max << "): ";  cin >> t;	// Skriver ut tekst og lar bruke skrive inn
+  cout << txt << '(' << min << '-' << max << "): ";  cin >> t;	cin.ignore(); // Skriver ut tekst og lar bruke skrive inn
 	
   while (t < min || t > max) {        // Hvis verdi er i intervalet fra min 
     cout << "\n\tUlovelig verdi!\n"	// til max så returnere funskjonen t
@@ -184,7 +184,7 @@ void Sone_Display() {
   lagNavn(nvn, SONE, dta, nr, 3);	 // Kaller på funksjonen med tilsente parametre
 	
   ifstream finnesSone (nvn);	// Setter ifstream til generert fil-navn
-  if (finnesSone) { soner -> vis_sone(nr); }	// Hvis filen finnes. Hent data
+  if (finnesSone) { soner.vis_sone(nr); }	// Hvis filen finnes. Hent data
   else { cout << "\n\t- Denne sonen eksisterer desverre ikke -"; }
 }
 
@@ -199,7 +199,7 @@ void Eiendom_Display() {
     switch (toupper(ch)) {
       case 'E': {	// Hvis - E -
   	    cout << "Skriv inn Eiendomsnr / oppdragsnr (Fra 100000):\t ";  cin >> nr;
-	    soner -> hent_eiendom(nr);		// Hent eiendom
+	    soner.hent_eiendom(nr);		// Hent eiendom
 		  
 	  } break;
 	    
