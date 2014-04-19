@@ -41,6 +41,50 @@ Kunde :: Kunde (int nr, ifstream & inn) : Num_element(nr) {
   }
 }
 
+// Kunde ny konstruktor
+Kunde :: Kunde(int kundenr) : Num_element(kundenr)	{
+	char valg;
+	char buffer[STRLEN];
+
+	Intrsone* intrsonepointer;
+	Intrsone* intrsonepointerkopi;
+
+	kundenummer = kundenr;
+	cout << endl << kundenr;
+
+	les("Navn", buffer, STRLEN);			// Leser navn
+	strcpy(navn, buffer);
+
+	les("Adresse", buffer, STRLEN);			// Leser adresse
+	strcpy(adr, buffer);
+
+	les("Postadresse", buffer, STRLEN);		// Leser postadresse
+	strcpy(post_adr, buffer);
+
+	tlf = les("Telefon", 10000000, 99999999);	// Leser telefonnummer
+	
+	les("Mail", buffer, STRLEN);			// Leser mailadresse
+	strcpy(mail, buffer);
+
+	IntrsonerListe = new List(Sorted);		// Lager ny liste
+	
+	int sonenummer = les("Sonenummer", 1, 100);
+	intrsonepointer = new Intrsone(sonenummer);
+	IntrsonerListe->add(intrsonepointer);
+
+	cout << "\n Vil du legge til enda en ny sone(kopi)? J eller N";
+	valg = meny_valg();
+
+	while (valg == 'J')	{
+		intrsonepointerkopi = new Intrsone(*intrsonepointer);		//Copy constructor
+		sonenummer = les("Sonenummer", 1, 100);			// Leser inn sonenummer
+		intrsonepointerkopi->byttsonenr(sonenummer);
+		IntrsonerListe->add(intrsonepointerkopi);
+		cout << "\n Vil du legge til enda en ny sone(kopi)? J eller N";
+		valg = meny_valg();
+	}
+}
+
 void Kunde :: sjekkInfo(char* navn_nr)	{
 	Intrsone* intrsonen;
 	int nummer = atoi(navn_nr);
@@ -53,11 +97,9 @@ void Kunde :: sjekkInfo(char* navn_nr)	{
 			intrsonen->display();
 			IntrsonerListe->add(intrsonen);
 		}
-
-
 	}
-
 }
+
 
 
 // ************************************************************************* //

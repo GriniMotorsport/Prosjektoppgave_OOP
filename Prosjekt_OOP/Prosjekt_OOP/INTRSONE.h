@@ -24,5 +24,6 @@ class Intrsone : public Num_element { // Intrsone classen
 public:
 	Intrsone(int nr, ifstream & inn);	// Constructor som henter fra fil
 	void display();
+	Intrsone(int snr);
 };
 #endif	// Slutt på fil

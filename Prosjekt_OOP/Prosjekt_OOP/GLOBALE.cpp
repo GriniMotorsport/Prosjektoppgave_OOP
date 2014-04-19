@@ -169,7 +169,7 @@ int les (char txt[STRLEN], int min, int max) {
 // Les tekst
 void les(char t[], char s[], const int LEN)	{
 	do {
-		cout << '\t' << t << ":	";
+		cout << '\n' << t << ":\t";
 		cin.getline(s, LEN);
 	} while (strlen(s) == 0);
 	}

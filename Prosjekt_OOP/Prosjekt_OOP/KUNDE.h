@@ -25,6 +25,7 @@ class Kunde : public Num_element  { // Kunde classen
     void kunde_slett();				// Sletter / Fjerner en kunde fra programme
     void kunde_endre();				// Endring på kunde
 	void sjekkInfo(char* navn_nr);
+	Kunde(int kundenr) : Num_element(kundenr);
 };
 
 #endif

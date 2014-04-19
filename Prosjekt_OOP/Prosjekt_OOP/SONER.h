@@ -13,7 +13,7 @@ using namespace std;
 class Soner { // Soner-Class
   private:
 	int nrSE;					// Nr til siste innlagte eiendom
-	Sone* sonene[MAX_ANT_SON];	// Max antall soner
+	Sone* sonene[MAX_ANT_SON+1];	// Max antall soner
 
   public:
 	Soner();								// Soner constructor
