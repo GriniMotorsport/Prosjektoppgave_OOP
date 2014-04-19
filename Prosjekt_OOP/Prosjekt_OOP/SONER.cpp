@@ -42,8 +42,7 @@ void Soner :: Eiendom_Ny(int sonenr)	{
 }
 
 void Soner :: Eiendom_Slett(int sonenr)	{
-	bool 
-	int i = 1;
+	
 
 }
 
