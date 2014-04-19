@@ -21,7 +21,7 @@ class Soner { // Soner-Class
 	void vis_sone(int nr);					// Viser eksakt sone fra input
 	void hent_eiendom(int nr);				// Henter eksakt eiendom
 	void Eiendom_Ny(int sonenr);
-
+	void Eiendom_Slett(int sonenr);
 
 
 };

@@ -53,7 +53,7 @@ void eiendom() {								// under kategorien eiendom
       case 'D' : Eiendom_Display();  break;			// Eiendom_Display
 	  case 'N' : sonenr = les("Skriv inn sonenummer",1 ,100);
 		  soner.Eiendom_Ny(sonenr); break;			// Eiendom_Ny
-	  case 'S' : cout << "ES"; break;				// Eiendom_Slett
+	  case 'S' : cin >> sonenr; soner.Eiendom_Slett(sonenr); break;	// Sletter eiendom
 	  case 'E' : cout << "EE"; break;				// Eiendom_Endre
 	  default:   cout << "DEFAULT-E"; break;		// Deafulte
 	}

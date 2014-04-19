@@ -39,7 +39,11 @@ void Soner :: Eiendom_Ny(int sonenr)	{
 	if (sonene[sonenr])	{
 		sonene[sonenr]->eiendom_ny(sisteE);
 	}
+}
 
+void Soner :: Eiendom_Slett(int sonenr)	{
+	bool 
+	int i = 1;
 
 }
 
