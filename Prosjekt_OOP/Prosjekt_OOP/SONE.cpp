@@ -42,7 +42,7 @@ Sone :: Sone(ifstream & inn) {
 	
   inn >> ant;		// Henter ant
 
-  for (int i = 1; i <= ant; i++) {		// Går fra 1 -> ant ganger
+  for (int i = 1; i <= ant; i++) {		// Gï¿½r fra 1 -> ant ganger
     int nr;
 	char type;
     inn >> nr;							// Setter av plass til filnavn
@@ -54,7 +54,7 @@ Sone :: Sone(ifstream & inn) {
 	eiendomHent >> type;
 	cout << type;
 
-	while (!eiendomHent.eof()) {			    // Kjør så lenge det er data på fil
+	while (!eiendomHent.eof()) {			    // Kjï¿½r sï¿½ lenge det er data pï¿½ fil
 	  if (type == 'b') {
 	    bolig = new Bolig(nr, eiendomHent); 	// Danner et nytt Bolig object
 	    Eiendomer -> add(bolig);
@@ -70,14 +70,14 @@ Sone :: Sone(ifstream & inn) {
 };
 
 // 
-void Sone :: skriv_til_fil(ofstream & ut) {
+void Sone :: skriv_til_fil(ofstream & ut) { //skrive info til fil
   ut << info  << '\n'
 	 << '1'   << '\n'
 	 << sisteE;
 }
 
 //
-void Sone :: ny_oppdrag(int nr, bool f) {
+void Sone :: ny_oppdrag(int nr, bool f) { // lager new info av type av eiendom
   char type;
   Eiendom* eiendom;
   Bolig* bolig;
@@ -111,24 +111,24 @@ void Sone :: ny_oppdrag(int nr, bool f) {
   }
 }
 
-// Sone_Display - Skriver ut en git sone
-void Sone :: display(int nr) {
+
+void Sone :: display(int nr) { // Sone_Display - Skriver ut en git sone
 	
   cout << "\n\tSonenummer - " << nr << " -"
        << "\nBeskrivelse for sonen: " << info;  // Loop'er ant ganger = ant 
   Eiendomer -> display_list();
 }
 
-// Sone_Hent_Eiendom - Skriv eiendom
-void Sone :: vis_eiendom(int nr) {
+
+void Sone :: vis_eiendom(int nr) { // Sone_Hent_Eiendom - Skriv eiendom
   if (Eiendomer -> in_list(nr)) {
     cout << "\n\t\t\tEiendom - " << nr << " -";
     Eiendomer -> display_element(nr);
   }					
 }
 
-// Sone_Hent_Eiendommer - Skriver eiendommer
-void Sone :: vis_eiendommer(int postNr) {
+
+void Sone :: vis_eiendommer(int postNr) { // Sone_Hent_Eiendommer - Skriver eiendommer
   Eiendom* eiendommer;
   int ant = Eiendomer -> no_of_elements();
 
