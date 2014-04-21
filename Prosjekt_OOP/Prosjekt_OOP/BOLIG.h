@@ -8,18 +8,17 @@
 using namespace std;
 
 class Bolig : public Eiendom { // Bolig klassen.  En subclasse av Eiendom
-private:
+  private:
 	int byggeaar;					// Byggeår (AAAA)
 	int bruttoareal;				// Bruttoareal
 	int boareal;					// Boareal
 	int antSoverom;					// Ant soverom
 	int onsket;						// Om til salgs / leie eller begge deler
-	char type;						// Hjelpe char for og si om Bolig eller ei
 
-public:
+  public:
+	Bolig(char t, int nr);
 	Bolig(int nr, ifstream & inn);	// Constructor som henter fra fil
-	void Display();					// Skriver ut sine variable
-	Bolig(int oppdrnr);
+	void display();					// Skriver ut sine variable
 };
 
 #endif	// Slutt på fil	
