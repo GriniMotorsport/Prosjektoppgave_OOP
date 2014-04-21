@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <math.h>
 // Include .h filer
 #include <stdlib.h>
 #include "GLOBALE.h"
@@ -10,10 +11,13 @@
 #include "GLOBALE_VARIABLE.h"
 #include "SONER.h"
 #include "KUNDER.h"
-#include "main.cpp"
+
 
 using namespace std;
 
+// Externe objekter
+extern Soner* soner;
+extern Kunder* kunder;
 
 // Externe char variable
 extern char dta[];
@@ -21,9 +25,9 @@ extern char SONE[];
 extern char e[];
 
 // Variable for siste-brukt
-int sisteE;			// Siste registrerte eiendom
-int fNaaK;			// Forste Nåvarende kunde
-int sInnlK;			// Siste innlagte kunde
+extern int sisteE;			// Siste registrerte eiendom
+extern int fNaaK;			// Forste Nåvarende kunde
+extern int sInnlK;			// Siste innlagte kunde
 
 // Meny_valg-funksjonene tar en char input fra bruker den som kommando
 char meny_valg() {
@@ -44,18 +48,16 @@ void skriv_meny()  {         //  Skriver meny/lovlige kommandoer til bruker:
 // Eiendom - funksjonen som har en switch til og kunne velge mellom funksjoner
 void eiendom() {								// under kategorien eiendom
   char kommando;
-  int sonenr;
   skriv_meny_eiendom();							// Skriver meny
   kommando = meny_valg();						// Henter komando
 
   while (kommando != 'Q') {		// Kjører så lenge ikke Q skrives inn
     switch (kommando){
-      case 'D' : Eiendom_Display();  break;			// Eiendom_Display
-	  case 'N' : sonenr = les("Skriv inn sonenummer",1 ,100);
-		  soner.Eiendom_Ny(sonenr); break;			// Eiendom_Ny
-	  case 'S' : cin >> sonenr; soner.Eiendom_Slett(sonenr); break;	// Sletter eiendom
-	  case 'E' : cout << "EE"; break;				// Eiendom_Endre
-	  default:   cout << "DEFAULT-E"; break;		// Deafulte
+      case 'D' : Eiendom_Display();  break;		// Eiendom_Display
+   	  case 'N' : Eiendom_Ny();       break;		// Eiendom_Ny
+	  case 'S' : Eiendom_Slett;      break;	    // Eiendom_Slett
+	  case 'E' : Eiendom_Endre; break;				// Eiendom_Endre
+	  default:   cout << "Dette er en ugyldig komando!"; break;		// Deafulte
 	}
    break;
   }
@@ -69,11 +71,11 @@ void kunde() {									// under kategorien Kunde
 
   while (kommando != 'Q') {	       // Kjører så lenge ikke Q skrives inn
     switch (kommando){
-   	  case 'D' : cout << "KD"; break;				// Kunde_Display
-	  case 'N' : cout << "KN"; break;				// Kunde_Ny
-	  case 'S' : cout << "KS"; break;				// Kunde_Slett
-	  case 'E' : cout << "KE"; break;				// Kunde_Endre
-	  default:   cout << "DEFAULT-K"; break;		// Deafult
+   	  case 'D' : Kunde_Display();     break;	    // Kunde_Display
+	  case 'N' : Kunde_Ny();          break;		// Kunde_Ny
+	  case 'S' : Kunde_Slett();       break;  		// Kunde_Slett
+	  case 'E' : Kunde_Endre();       break;    	// Kunde_Endre
+	  default:   cout << "Dette er en ugyldig komando!"; break;  // Deafult
 	}
    break;
   }
@@ -141,7 +143,7 @@ void skriv_meny_status() {
 		  "\tS - Skriv utskrifter til kunde \n";
 }
 
-// Kode for lagNavn 
+// Kode for lagNavn
 void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {  
   char num[10];					// Hjelpe charArray.
   itoa(n, num, 10);				// Gjør n om til char og legger i num.
@@ -155,72 +157,195 @@ void lagNavn(char* t, char* s1, char* s2, int n, const int LEN) {
 }
 
 // Les - funksjon med retun int
-int les (char txt[STRLEN], int min, int max) {
+int les (char txt[], int min, int max) {
   int t;								// Hjelpe variable
-  cout << txt << '(' << min << '-' << max << "): ";  cin >> t;	cin.ignore(); // Skriver ut tekst og lar bruke skrive inn
+  // Skriver ut tekst og lar bruke skrive inn
+  cout << txt << min << " - " << max << "):\t";  cin >> t;				
 	
-  while (t < min || t > max) {        // Hvis verdi er i intervalet fra min 
-    cout << "\n\tUlovelig verdi!\n"	// til max så returnere funskjonen t
-   	     << txt;  cin >> t;			// Looper til riktig interval
-  } 
+  while (t < min || t > max) {            // Hvis verdi er i intervalet fra min 
+    cout << "\n\t - Ulovelig verdi! -\n"  // til max så returnere funskjonen t
+									      // Looper til riktig interval
+   	     << txt << min << " - " << max << "):\t";  cin >> t;			
+  }										
   return t;
 }
 
-// Les tekst
-void les(char t[], char s[], const int LEN)	{
-	do {
-		cout << '\n' << t << ":\t";
-		cin.getline(s, LEN);
-	} while (strlen(s) == 0);
-	}
+// Les - Funksjon som henter inputt
+void les(char txt[], char* n, const int LEN) { 
+  do  {
+    cout << txt;                  // skriver ut txt
+    cin.getline(n, LEN);          // Leser inn tekst.
+  } while (strlen(n) == 0);      
+}
+
+// Les - 
+int les (char txt[], const int LEN) {
+  int tall;
+  cout << txt;  cin >> tall;
+
+  switch (LEN) {
+    case 2: {
+	  while (tall > 99 || tall == 0) {
+        cout << "\n\t\tUgyldig Verdi!\n";
+	    cout << txt;  cin >> tall;
+      } 
+    } break;
+
+    case 4: {
+	  while (tall > 9999 || tall == 0) {
+        cout << "\n\t\tUgyldig Verdi!\n";
+	    cout << txt;  cin >> tall;
+      }
+	} break;
+
+	case 8: {
+	  while (tall > 99999999 || tall == 0) {
+        cout << "\n\t\tUgyldig Verdi!\n";
+	    cout << txt;  cin >> tall;
+      }
+	} break;
+	
+  }
+  return tall;
+}
 
 // Sone_Display - Skriver ut data om ønsket sone
 void Sone_Display() {
   char* nvn;
   int nr =				// Henter sone-nr fra bruker
-		les("\nHvilken sone hvil du skrive ut data om? (1 - 100):\t", 1, 100);
+		les("\nHvilken sone hvil du skrive ut data om (", 1, MAX_ANT_SON);
   
   nvn = new char[(strlen(SONE) + strlen(dta) + 3 + 1)];	// Setter av plass
   lagNavn(nvn, SONE, dta, nr, 3);	 // Kaller på funksjonen med tilsente parametre
 	
   ifstream finnesSone (nvn);	// Setter ifstream til generert fil-navn
-  if (finnesSone) { soner.vis_sone(nr); }	// Hvis filen finnes. Hent data
+  if (finnesSone) { soner -> vis_sone(nr); }	// Hvis filen finnes. Hent data
   else { cout << "\n\t- Denne sonen eksisterer desverre ikke -"; }
 }
 
 // Eiendom_Display - Skriver ut ønsket eiendom / eiendommer for bruker
 void Eiendom_Display() {
   char ch;
+  char* nvn;
   int nr;			// Spørr om en eller flere eiendommer skal søkes etter
+  nvn = new char[(strlen(SONE) + strlen(dta) + 3 + 1)];	// Setter av plass
   cout << "\nHvil du soke etter (E)n eller (F)lere eiendommer?:\t ";  
   cin >> ch;  cin.ignore();
 								      // Kjører til endte E eller F skrives
   while (toupper(ch) != 'E' || toupper(ch) != 'F') {	
     switch (toupper(ch)) {
       case 'E': {	// Hvis - E -
-  	    cout << "Skriv inn Eiendomsnr / oppdragsnr (Fra 100000):\t ";  cin >> nr;
-	    soner.hent_eiendom(nr);		// Hent eiendom
-		  
+  	    nr = les("Skriv inn Eiendomsnr / oppdragsnr (", 10000, sisteE);
+		for (int i = 1; i <= MAX_ANT_SON; i++) {
+		  lagNavn(nvn, SONE, dta, i, 3);	
+		  ifstream finnesSone (nvn);
+
+		  if (finnesSone) {soner -> hent_eiendom(i, nr);  }	// Hent eiendom
+		}
 	  } break;
 	    
 	  case 'F': {   // Hvis - F -
-	  		
+	  	nr = les("Skriv inn et postnr (", MIN_POST, MAX_POST);
+		for (int i = 1; i <= MAX_ANT_SON; i++) {
+		  lagNavn(nvn, SONE, dta, i, 3);	
+		  ifstream finnesSone (nvn);
+
+		  if (finnesSone) {soner -> hent_eiendommer(i, nr);  }	// Hent eiendom
+		}
+		
        } break;
 	  
 	  default:   break;
 	}
+	break;
   }  
 }
 
-
-// Kunde_Display - Skriver ut data om ønsket kunde
+// Kunde_Display Skriver ut data om gitt kunde eller alle kunder med gitt navn
 void Kunde_Display() {
+  char ch;
+  char* nvn;
+  char* navn;
+  int nr;
+  cout << "\nDette er en funksjon som skriver ut forskjellige kunde-data:\n"
+	   << "(A) Skriver ut data om en kunde (Kunde-Nr)\n"
+	   << "(B) Skriver ut data om kunder ved et gitt navn (Kunde-Navn)\n\n";
+  ch = meny_valg();
 
+  switch (toupper(ch)) {
+    case 'A' : {
+	  nr = les("SKriv inn et Kunde-Nr som du vil soke paa (", fNaaK, sInnlK);
+	  nvn = new char[(strlen(k) + strlen(dta) + 7 + 1)];	// Setter av plass
+      lagNavn(nvn, k, dta, nr, 7);	 // Kaller på funksjonen med tilsente parametre
+	  ifstream finnKunde (nvn);
+
+	  if (finnKunde) { kunder -> vis_kunde(nr); }
+	  else { cout << "Kunden finnes ikke"; }
+
+	} break;
+
+    case 'B' : {
+	  navn = new char[]; 
+	  
+	  les("Skriv inn et navn for kunde: ", navn, MAX_TEGN_TEKST2);
+	  if (!kunder -> vis_kunder(navn)) {
+	    cout << "Kunden eksisterer ikke";
+	  }
+    
+	} break;
+    
+	default: break;
+  }
+}
+
+// Oppretter en ny eiendom i en angitt sone
+void Eiendom_Ny() {
+  char* nvn;
+  bool finnes = false;
+
+  int soneNr = les("\n\tHvilken sone ligger det nye oppdraget (", 1, MAX_ANT_SON);
+  
+  nvn = new char[(strlen(SONE) + strlen(dta) + 3 + 1)];	// Legger av plass 
+  lagNavn(nvn, SONE, dta, soneNr, 3);					// Kaller på funksjonen med
+													// tilsente parametre
+  ifstream soneHent (nvn);		// Setter ifstream lik filnavn
+  
+  if (soneHent) { finnes = true; }
+  
+  soner -> ny_oppdrag(soneNr, finnes); 
+}
+
+// Oppretter en ny kunde
+void Kunde_Ny() {
+  cout << "\n\tGratulerer som en ny kunde her hos oss.\n\n\tDitt kunde-nummer er: "
+	   << "---" << (++sInnlK) << "---\n";
+ 
+  kunder -> ny_kunde();
+	  
+}
+
+// Sletter en utvalgt eiendom etter eiendom-nummer
+void Eiendom_Slett() {
+
+}
+
+void Kunde_Slett() {
+
+}
+
+// Endrer på verdier som objekter har og lagrer endringene
+void Eiendom_Endre() {
+
+}
+
+void Kunde_Endre() {
+
+}
 
 // Hent_fra_fil - henter all data fra filer til programmet og legger de inn
 void hent_fra_fil() { 
   char* nvn;
-  ifstream sisteHent	("SISTE.DTA");			// Skriver siste variable fra fil
+  ifstream sisteHent	("SISTE.DTA");		// Skriver siste variable fra fil
   
   if (sisteHent) { // hvis filen finnes
 	 
@@ -240,19 +365,16 @@ void hent_fra_fil() {
 	}
   }
 
-  // Kunne les_fra_fil 
-  int ant = sInnlK - fNaaK;
-  int nr = fNaaK;	    // Går fra forste nåværende kunde til siste registrerte
-  for (int i = 1; i <= ant; i++) {	
-    nvn = new char[(strlen(k) + strlen(dta) + 7 + 1)];	// Legger av plass
-	lagNavn(nvn, k, dta, nr++, 7);// Kaller på funksjonen med tilsent parametre
+  // Kunnde les_fra_fil 
+ 
+  if (!fNaaK == 0) { kunder = new Kunder(); }
+}
 
-	ifstream kundeHent (nvn);		// Setter ifstream lik filnavn
-
-	if (kundeHent) { // Hvis filen finnes. Hent data for kunder
-	  kunder = new Kunder(nr, kundeHent);
-	}
-  }
+void opp_SISTE() {
+  ofstream siste ("SISTE.DTA");
+  siste << sisteE   << '\n'
+        << fNaaK    << '\n'
+        << sInnlK   << '\n';
 }
 
 // ************************************************************************* //

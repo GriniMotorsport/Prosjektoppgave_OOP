@@ -9,41 +9,61 @@
 #include "GLOBALE_CONST.h"
 #include "SONER.h"
 #include "SONE.h"
-#include "GLOBALE_VARIABLE.h"
 
 using namespace std;
+
+// Externe char variable
+extern char dta[];
+extern char SONE[]; 
+extern char k[];			
+extern int sisteE;			// Siste registrerte eiendom
+extern int fNaaK;			// Forste Nåvarende kunde
+extern int sInnlK;			// Siste innlagte kunde
 
 // Constructor Soner
 Soner :: Soner() {}
 
 // Soner_Hent_Sone - Henter data om sone og legger på riktig plass i Array
 void Soner :: hent_sone(int nr, ifstream & inn) {
-  sonene[nr] = new Sone(inn);
+  soner[nr] = new Sone(inn);
+}
+
+// Soner_Ny_Oppdrag - oppretter nytt oppdrag i eksisterende sone
+void Soner :: ny_oppdrag(int nr, bool f) {
+  char* nvn;
+  if (!f) { 
+    soner[nr] = new Sone(); 
+    soner[nr] -> ny_oppdrag(nr, f);
+    nvn = new char[(strlen(SONE) + strlen(dta) + 3 + 1)];
+	lagNavn(nvn, SONE, dta, nr, 3);
+	ofstream soneSkriv (nvn);
+	soner[nr] -> skriv_til_fil(soneSkriv);
+  }
+ 
+  else { soner[nr] -> ny_oppdrag(nr, f); }	
+
+  opp_SISTE();  nrSE = sisteE;
+  nvn = new char[(strlen(k) + strlen(dta) + 7 + 1)];
+  
+  
+  
+  
 }
 
 // Soner_Vis_Sone - Viser en angitt sone som bruker har skrevet inn
 void Soner :: vis_sone(int nr) {
-  sonene[nr] -> display(nr);
+  soner[nr] -> display(nr);
 }
 
 // Soner_Hent_Eiendom - Henter eiendom for soner
-void Soner :: hent_eiendom(int nr) {
-  for (int i = 1; i <= MAX_ANT_SON; i++) {
-	sonene[i] -> hent_eiendom(nr);	
-  }
+void Soner :: hent_eiendom(int nr, int eiendomNr) {
+  soner[nr] -> vis_eiendom(eiendomNr);
 }
 
-// Ny eiendom
-void Soner :: Eiendom_Ny(int sonenr)	{
-	sisteE++;
-	if (sonene[sonenr])	{
-		sonene[sonenr]->eiendom_ny(sisteE);
-	}
+// Soner_Hent_Eiendommer - Viser eiendommer på et spessielt postnr
+void Soner :: hent_eiendommer(int nr, int postNr) {
+  soner[nr] -> vis_eiendommer(postNr);	
 }
 
-void Soner :: Eiendom_Slett(int sonenr)	{
-	
-
-}
 
 // ************************************************************************* //

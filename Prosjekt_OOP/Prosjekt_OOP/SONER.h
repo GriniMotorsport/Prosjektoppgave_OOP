@@ -13,17 +13,16 @@ using namespace std;
 class Soner { // Soner-Class
   private:
 	int nrSE;					// Nr til siste innlagte eiendom
-	Sone* sonene[MAX_ANT_SON+1];	// Max antall soner
+	Sone* soner[MAX_ANT_SON];	// Max antall soner
 
   public:
-	Soner();								// Soner constructor
-	void hent_sone(int nr, ifstream & inn);	// Constructor som henter fra fil
-	void vis_sone(int nr);					// Viser eksakt sone fra input
-	void hent_eiendom(int nr);				// Henter eksakt eiendom
-	void Eiendom_Ny(int sonenr);
-	void Eiendom_Slett(int sonenr);
-
-
+	Soner();								    // Soner constructor
+	void hent_sone(int nr, ifstream & inn); 	// Constructor som henter fra fil
+	void ny_oppdrag(int nr, bool f);
+	void vis_sone(int nr);					    // Viser eksakt sone fra input
+	void hent_eiendom(int nr, int eiendomNr);				// Henter eksakt eiendom
+	void hent_eiendommer(int nr, int postNr);
+	
 };
 
 #endif	// Slutt på fil

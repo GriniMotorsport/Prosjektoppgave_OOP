@@ -13,19 +13,20 @@ class Kunde : public Num_element  { // Kunde classen
 	char* navn;				// Navn på kunde
 	char* adr;			    // Gate-Adresse
 	char* post_adr;			// Post-Adresse
-	int kundenummer;		// Kundenummer
 	int tlf;				// Telefon-Nr
 	char* mail;				// Mail / Epost
 	List* IntrsonerListe;	// Ønsker fra kunde
 
   public:
-    Kunde (int nr, ifstream & inn);	// Constructor som henter fra fil
+    Kunde();
+	Kunde(int nr, ifstream & inn);	// Constructor som henter fra fil
+	Kunde(ofstream & ut);
+	void display();
+	bool finnes_navn(char* nvn);
     void kunde_display();			// Skriver ut sine variable
     void kunde_ny();				// Registrerer en ny kunde
     void kunde_slett();				// Sletter / Fjerner en kunde fra programme
     void kunde_endre();				// Endring på kunde
-	void sjekkInfo(char* navn_nr);
-	Kunde(int kundenr) : Num_element(kundenr);
 };
 
 #endif

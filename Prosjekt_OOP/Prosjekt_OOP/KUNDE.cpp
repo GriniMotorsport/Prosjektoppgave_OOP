@@ -9,9 +9,50 @@
 #include "GLOBALE_CONST.h"
 #include "KUNDE.h"
 #include "INTRSONE.h"
-#include "KUNDER.h"
+#include "SONER.H"
 
 using namespace std;
+
+extern Soner* soner;
+
+// Externe char variable
+extern char dta[];
+extern int sInnlK;			// Siste innlagte kunde
+extern char SONE[];
+
+// Constructor Kunde - Legger til ny kunde
+Kunde :: Kunde() : Num_element(sInnlK) {
+  char* nvn;
+  char ch;
+  int soneNr;
+  Intrsone* intrsone;
+  navn     = new char[MAX_TEGN_TEKST2+1];	// New char med nok plass
+  adr      = new char[MAX_TEGN_TEKST2+1];	// ----------------------
+  post_adr = new char[MAX_TEGN_TEKST2+1];	// ----------------------
+  mail     = new char[MAX_TEGN_TEKST2+1];	// ----------------------
+
+  les("Navn: ", navn, MAX_TEGN_TEKST2);
+  les("Gate-Adressse: ", adr, MAX_TEGN_TEKST2);
+  les("Post-Adresse:", post_adr, MAX_TEGN_TEKST2);
+  les("Mail:", mail, MAX_TEGN_TEKST2);
+  tlf = les("Telefon: ", 8);
+
+  soneNr = les("Hvilke sone har du en interesse for (", 1, MAX_ANT_SON);
+  nvn = new char[(strlen(SONE) + strlen(dta) + 3 + 1)];	// Legger av plass 
+ 
+  for (int i = 1; i <= MAX_ANT_SON; i++) {	// Fra 1 - 100 plasser i sone[]
+	lagNavn(nvn, SONE, dta, i, 3);					// Kaller på funksjonen med
+													// tilsente parametre
+	ofstream soneFinnes (nvn);
+
+	if (soneFinnes) {
+	  intrsone = new Intrsone(soneNr);
+	  IntrsonerListe -> add(intrsone);
+	} 
+  }
+ 
+  
+}
 
 // Constructor Kunde - Henter data fra fil
 Kunde :: Kunde (int nr, ifstream & inn) : Num_element(nr) {
@@ -41,65 +82,26 @@ Kunde :: Kunde (int nr, ifstream & inn) : Num_element(nr) {
   }
 }
 
-// Kunde ny konstruktor
-Kunde :: Kunde(int kundenr) : Num_element(kundenr)	{
-	char valg;
-	char buffer[STRLEN];
-
-	Intrsone* intrsonepointer;
-	Intrsone* intrsonepointerkopi;
-
-	kundenummer = kundenr;
-	cout << endl << kundenr;
-
-	les("Navn", buffer, STRLEN);			// Leser navn
-	strcpy(navn, buffer);
-
-	les("Adresse", buffer, STRLEN);			// Leser adresse
-	strcpy(adr, buffer);
-
-	les("Postadresse", buffer, STRLEN);		// Leser postadresse
-	strcpy(post_adr, buffer);
-
-	tlf = les("Telefon", 10000000, 99999999);	// Leser telefonnummer
-	
-	les("Mail", buffer, STRLEN);			// Leser mailadresse
-	strcpy(mail, buffer);
-
-	IntrsonerListe = new List(Sorted);		// Lager ny liste
-	
-	int sonenummer = les("Sonenummer", 1, 100);
-	intrsonepointer = new Intrsone(sonenummer);
-	IntrsonerListe->add(intrsonepointer);
-
-	cout << "\n Vil du legge til enda en ny sone(kopi)? J eller N";
-	valg = meny_valg();
-
-	while (valg == 'J')	{
-		intrsonepointerkopi = new Intrsone(*intrsonepointer);		//Copy constructor
-		sonenummer = les("Sonenummer", 1, 100);			// Leser inn sonenummer
-		intrsonepointerkopi->byttsonenr(sonenummer);
-		IntrsonerListe->add(intrsonepointerkopi);
-		cout << "\n Vil du legge til enda en ny sone(kopi)? J eller N";
-		valg = meny_valg();
-	}
+Kunde :: Kunde(ofstream & ut) {
+	ut << navn      << '\n'
+	   << adr       << '\n'
+	   << post_adr  << '\n'
+	   << tlf       << '\n'
+	   << mail      << '\n';
 }
 
-void Kunde :: sjekkInfo(char* navn_nr)	{
-	Intrsone* intrsonen;
-	int nummer = atoi(navn_nr);
-	int antIntrsoner = IntrsonerListe-> no_of_elements();
-
-	if(strcmp(navn_nr, navn) == 0 || nummer == kundenummer)	{
-		kunde_display();
-		for(int i = 1; i <= antIntrsoner; i++)	{
-			intrsonen = (Intrsone*) IntrsonerListe->remove_no(i);
-			intrsonen->display();
-			IntrsonerListe->add(intrsonen);
-		}
-	}
+void Kunde :: display() {
+  cout << "\n\n\tNavn:         " << navn
+	   << "\n\tAdresse:      " << adr
+	   << "\n\tPost-Adresse: " << post_adr
+	   << "\n\tTelefon:      " << tlf
+	   << "\n\tEpost:        " << mail;
+  IntrsonerListe -> display_list();
+  cout << "\n\t---------------------------------";
 }
 
-
-
+bool Kunde :: finnes_navn(char* nvn) {
+  if (strcmp(nvn, navn)) { return true;  }
+  else                   { return false; }
+}
 // ************************************************************************* //

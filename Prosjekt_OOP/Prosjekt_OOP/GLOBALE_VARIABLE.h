@@ -14,4 +14,6 @@ extern int fNaaK;			// Forste Nåvarende kunde
 extern int sInnlK;			// Siste innlagte kunde
 
 
+
+
 #endif	// Slutt på fil

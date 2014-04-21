@@ -10,18 +10,19 @@
 
 using namespace std;
 
-class Kunder : public Num_element { // Kunder classen
+class Kunder { // Kunder classen
   private:
     int forsteNK;		// Første registrert nåværende kunde
 	int sistIK;			// Siste innlagt kunde
 	List* KundeListe;	// En liste med kunder 
 
   public:
-	Kunder();						// Kunder constructor			
-	Kunder(int nr, ifstream & inn);	// Constructor som henter fra fil
-	void Kunde_Display(char* navn_nr);
+	Kunder();						// Kunder constructor		
+	void ny_kunde();
+	void display(int nr);
+	void vis_kunde(int kNr);
+	bool vis_kunder(char* nvn);
 	
-
 };
 
 #endif	// Slutt på fil

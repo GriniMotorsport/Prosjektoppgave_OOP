@@ -11,6 +11,13 @@
 
 using namespace std;
 
+// Constructor
+Intrsone :: Intrsone(int nr) : Num_element(nr) {
+  max_pris  = les("\tMax-Pris: ", MIN_PRIS, MAX_PRIS);
+  min_areal = les("\tMin-Areal: ", MIN_E_AREAL, MAX_E_AREAL);
+  
+}
+
 // Constructor Intersone - Henter data fra fil 
 Intrsone :: Intrsone(int nr, ifstream & inn) : Num_element(nr) {
 	inn >> max_pris;		// Henter data og legger til i variable
@@ -30,60 +37,32 @@ Intrsone :: Intrsone(int nr, ifstream & inn) : Num_element(nr) {
 	*/
 }
 
-Intrsone :: Intrsone(int snr) : Num_element(snr){
-	char valg;
-	sonenummer = snr;
+void Intrsone :: display() {
+  cout << "\n\n\tMax-Pris:    " << max_pris
+	   <<   "\n\tMin-Areal:   " << min_areal
+	   <<   "\n\tMin-Ant-Rom: " << minA_rom
+	   <<   "\n\tEiendomtype: ";
 
-	max_pris = les("Maxpris", 1, 99999999);	
-	min_areal = les("Minimum areal", 1, 99999);	
-	minA_rom = les("Minimum antall soverom", 1, 30);
+  switch (eien_t) {		/* Forskjellig output avhengi av hva 
+								   eiendomType sin vardi er          */	
+	    case 0: cout << "Tomt";			break;		// 0 for Tomt
+		case 1: cout << "Enebolig";		break;		// 1 for Enebolig
+		case 2: cout << "Rekkehus";		break;		// 2 for Rekkehus
+		case 3: cout << "Leilighet";	break;		// 3 for Leilighet
+		case 4: cout << "Hytte";		break;		// 4 for Hytte
+  }
 
-	cout << "\nHvilken eiendomstype onsker du? [T]omt, [E]nebolig, [R]ekkehus, [L]eilighet, [H]ytte";
-	valg = meny_valg();
+  cout <<   "\n\tInteresse:   ";
 
-	switch(valg)	{
-		case 'T' : eien_t = Tomt; break;
-		case 'E' : eien_t = Enebolig; break;
-		case 'R' : eien_t = Rekkehus; break;
-		case 'L' : eien_t = Leilighet; break;
-		case 'H' : eien_t = Hytte; break;
-		default: cout << "\n\nUgyldig kommando"; break;
-	}
+  switch (interessert) {		/* Forskjellig output avhengi av hva 
+								   eiendomType sin vardi er          */	
+	    case 0: cout << "Salg";		break;		// 0 for Tomt
+		case 1: cout << "Leie";		break;		// 1 for Enebolig
+		case 2: cout << "Begge";	break;		// 2 for Rekkehus
+  }
 
-	cout << "\nHva onsker du å gjore? [S]alg, [L]eie";
-	valg = meny_valg();
-
-	switch(valg)	{
-		case 'S' : interessert = Salg; break;
-		case 'L' : interessert = Leie; break;
-		default: cout << "\n\nUgyldig kommando"; break;
-	}
-
-	cout << "Hvor ofte vil du faa tilsendt info om boliger? [U]kentlig eller [S]narest";
-	valg = meny_valg();
-
-	switch(valg)	{
-		case 'U' : tilsen_Bolig = Ukentlig; break;
-		case 'S' : tilsen_Bolig = Snarest; break;
-		default: cout << "\n\nUgyldig kommando"; break;
-	}
-
-
+  cout <<   "\n\tTilsending:  ";
+  if (tilsen_Bolig == 0) cout << "Ukentlig";
+  else					 cout << "Snarest";	
 }
-
-void Intrsone :: display()	{
-	char* Eiendomstype[] = {"Tomt", "Enebolig", "Rekkehus", "Leilighet", "Hytte"};
-	char* Onske[] = {"Salg", "Leie", "Begge"};
-	char* Boliginfo[] = {"Ukentlig", "Snarest"};
-	cout << "\n\n Interessesone:	";
-	cout << "\nSonenummer:	" << sonenummer;
-	cout << "\nMakspris:	" << max_pris;
-	cout << "\nMinimum areal:	" << min_areal;
-	cout << "\nMinimum soverom:	" << minA_rom;
-	cout << "\nEiendomtype:	" << Eiendomstype[eien_t];
-	cout << "\nInteressert i: " << Onske[interessert];
-	cout << "\nTilsending:	" << Boliginfo[tilsen_Bolig];
-		
-}
-
 // ************************************************************************* //

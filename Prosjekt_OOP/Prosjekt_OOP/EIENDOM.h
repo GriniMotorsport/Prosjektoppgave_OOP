@@ -24,15 +24,11 @@ class Eiendom : public Num_element { // Eiendom-classen
 	char* info;				// Beskrivelse av eiendomen
 	int eiendomType;		// Enum verdi
 
-
   public:
-	  Eiendom(int oppdrnr);
-	  Eiendom(int nr, ifstream & inn);	// Constructor som henter fra fil
-	  void Display();					// Skriver ut sine variable
-	  bool finnes_nr(int nr);	/* Fuksjon som tester input fra
-	  								   bruker for Eiendom-Nr eller
-										   oppdrags-Nr                   */
-	  void settEiendomtype(char s);
+    Eiendom(char t, int nr);
+	Eiendom(int nr, ifstream & inn);	// Constructor som henter fra fil
+    void display();					// Skriver ut sine variable
+    bool harPost(int postNr);
 };
 
 #endif	// Slutt på fil

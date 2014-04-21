@@ -10,17 +10,19 @@
 using namespace std;
 
 class Sone { // Sone-Classen
-private:
+  private:
 	char* info;			// Kort beskrivelse for en aktuel sone
 	List* Eiendomer;	// En liste med eiendommer
 	
 
-public:
-	Sone(ifstream & inn);		// Constructor som henter fra fil	
-	void display(int nr);		// Skriver ut sine variable
-	void hent_eiendom(int nr);	// Henter eksakt eiendom etter sortert nummer
-	void eiendom_ny(int onr);
-
+  public:
+	Sone();
+	Sone(ifstream & inn);		  // Constructor som henter fra fil	
+	void skriv_til_fil(ofstream & ut);
+	void ny_oppdrag(int nr, bool f);
+	void display(int nr);		  // Skriver ut sine variable
+	void vis_eiendom(int nr);	  // Henter eksakt eiendom etter sortert nummer
+	void vis_eiendommer(int postNr);
 };
 
 #endif	// Slutt på fil

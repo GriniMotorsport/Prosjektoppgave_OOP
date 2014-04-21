@@ -5,6 +5,7 @@
 #include <fstream>
 #include <cstdlib>
 // Include .h filer
+#include <stdlib.h>
 #include "GLOBALE.h"
 #include "GLOBALE_CONST.h"
 #include "EIENDOM.h"
@@ -12,6 +13,32 @@
 #include "timer3.h"
 
 using namespace std;
+
+// Externe char variable
+extern char dta[];
+extern char e[];
+
+Eiendom :: Eiendom(char t, int nr) : Num_element(nr) {
+  Timer* timer;
+  timer = new Timer();
+  gateadresse = new char [MAX_TEGN_TEKST2+1];		// Sier new for char* + \0
+  postAdresse = new char [MAX_TEGN_TEKST2+1];		// ----------------------
+  eiersN      = new char [MAX_TEGN_TEKST2+1];		// ----------------------	
+  kommune     = new char [MAX_TEGN_TEKST2+1];		// ----------------------
+
+  eiendomType = t;
+  dato = (timer -> hentDato());
+
+  bruksNr = les("\n\tBruks-Nummer (4-siffre) : ", 4);
+  saksB = les("\tSakbehandlers-Nummer (2-siffre) : ", 2);
+  pris = les("\tPris for eiendomen (", MIN_PRIS ,MAX_PRIS);
+  areal = les("\tAreal på eiendom (", MIN_E_AREAL, MAX_E_AREAL);  cin.ignore();
+  les("\tGate-Adresse: ", gateadresse, MAX_TEGN_TEKST2);	      
+  les("\tPost-Adresse: ", postAdresse, MAX_TEGN_TEKST2);		  
+  les("\tEiers-Navn: ",   eiersN,      MAX_TEGN_TEKST2);		  
+  les("\tKomune: ",       kommune,     MAX_TEGN_TEKST2);		  
+  les("\n\tInfo om eiendommen:\n\t", gateadresse, MAX_TEGN_TEKST3); 
+}
 
 // Eiendom-constructor som henter data fra fil
 Eiendom :: Eiendom(int nr, ifstream & inn) : Num_element(nr) {
@@ -36,19 +63,18 @@ Eiendom :: Eiendom(int nr, ifstream & inn) : Num_element(nr) {
 };
 
 // Eiendom-Display for visning av data
-void Eiendom::Display()	{
-  Eiendomstype type;				// Skriver ut data om Eiendom
-  cout << "\nDato for opprettelse av tomten/eiendom:  " << dato
-       << "\nBruks-nummer:	"							<< bruksNr
-       << "\nSaksbehandlers nr:	"					    << saksB
-	   << "\nPris for tomten/eiendomen:	"			    << pris
-	   << "\nAreal på tomten/eiendomen:	"				<< areal
-	   << "\nGateadresse:	"							<< gateadresse
-	   << "\nPostadresse:	"							<< postAdresse
-	   << "\nEiers navn:	"							<< eiersN
-	   << "\nKommune navn:	"							<< kommune
-	   << "\nBeskrivelse:	"							<< info
-	   << "\nType eiendom: ";
+void Eiendom::display()	{
+  cout << "\n\n\tDato for opprettelse av tomten/eiendom:  " << dato
+       << "\n\tBruks-nummer:	    "						<< bruksNr
+       << "\n\tSaksbehandlers nr:	"					    << saksB
+	   << "\n\tPris for tomten/eiendomen:	"			    << pris
+	   << "\n\tAreal på tomten/eiendomen:	"				<< areal
+	   << "\n\tGateadresse:	"							    << gateadresse
+	   << "\n\tPostadresse:	"							    << postAdresse
+	   << "\n\tEiers navn:	"							    << eiersN
+	   << "\n\tKommune navn:	"							<< kommune
+	   << "\n\tBeskrivelse:	"							    << info
+	   << "\n\tType eiendom:  ";
 	
   switch (eiendomType) {		/* Forskjellig output avhengi av hva 
 								   eiendomType sin vardi er          */	
@@ -60,64 +86,22 @@ void Eiendom::Display()	{
   }
 }
 
-void Eiendom::settEiendomtype(char s) {
-	
-	switch(s)	{
-	case 'T': eiendomType = Tomt;		break;
-	case 'E': eiendomType = Enebolig;	break;
-	case 'R': eiendomType = Rekkehus;	break;
-	case 'L': eiendomType = Leilighet;	break;
-	case 'H': eiendomType = Hytte;		break;
-	}
+bool Eiendom :: harPost(int postNr) {
+  char t1 = postAdresse[0];
+  char t2 = postAdresse[1];
+  char t3 = postAdresse[2];
+  char t4 = postAdresse[3];
+  
+  int tall1 = atoi(&t1);
+  int tall2 = atoi(&t2);
+  int tall3 = atoi(&t3);
+  int tall4 = atoi(&t4);
+
+  int tall = (tall1 * 1000) + (tall2 * 100) + (tall3 * 10) + tall4;
+
+  if (tall == postNr) { return true; }
+
+  return false;
 }
 
-/* Eiendom-finnes brukes for og se om number som er sortert etter i listen med
-   er lik nr som brukeren skriver i input*/
-bool Eiendom :: finnes_nr(int nr) {
-	if (number == nr) return true;			// Hvis like.		Return true
-	return false;							// Hvis ikke-like.	Return false
-}
-
-Eiendom :: Eiendom(int oppdrnr)	: Num_element(oppdrnr)	{
-	char temp[STRLEN];
-	char nisd;
-	Timer* timer3 = new Timer;
-	dato = timer3->hentDato();
-	delete timer3;
-
-	bruksNr = les("Bruksnummer", 1000, 9999);
-	saksB = les("Saksbehandlernummer", 1, 1000); 
-	pris = les ("Pris", 1, 100000000);
-	areal = les ("Areal", 1, 1000);
-
-	les("Gateadresse:", temp, STRLEN);
-	gateadresse = new char[strlen(temp)+1];
-	strcpy(gateadresse,temp);
-
-	les("Postadresse:", temp, STRLEN);
-	postAdresse = new char[strlen(temp)+1];
-	strcpy(postAdresse,temp);
-
-	les("Eiers navn:", temp, STRLEN);
-	eiersN = new char[strlen(temp)+1];
-	strcpy(eiersN,temp);
-
-	les("Kommune:", temp, STRLEN);
-	kommune = new char[strlen(temp)+1];
-	strcpy(kommune,temp);
-
-	les("Beskrivelse:", temp, STRLEN);
-	info = new char[strlen(temp)+1];
-	strcpy(info,temp);
-
-	cout << "\nEiendomstype: [T]omt, [E]nebolig, [R]ekkehus, [L]eilighet, [H]ytte: ";
-	nisd = meny_valg();
-	settEiendomtype(nisd);
-
-
-}
-
-
-
-void 
 // ************************************************************************* //

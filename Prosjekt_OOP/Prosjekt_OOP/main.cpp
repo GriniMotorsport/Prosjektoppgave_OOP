@@ -5,16 +5,25 @@
 // Include .h filer
 #include "GLOBALE.h"
 #include "SONER.h"
-#include "KUNDEr.h"
+#include "KUNDER.h"
 
 using namespace std;
 
 // Globale objekter
-Soner soner;
-Kunder kunder;
+Soner* soner;
+Kunder* kunder;
+
+
+int sisteE;			// Siste registrerte eiendom
+int fNaaK;			// Forste Nåvarende kunde
+int sInnlK;			// Siste innlagte kunde
+
 
 // Int Main - Hovedprogram
 int main() {
+	
+  soner = new Soner;		// Lager nytt objekt soner
+  kunder = new Kunder;		// Lager nytt objekt kunder
 
   char kommando;
   hent_fra_fil();			// Hent fra fil - funksjonen
