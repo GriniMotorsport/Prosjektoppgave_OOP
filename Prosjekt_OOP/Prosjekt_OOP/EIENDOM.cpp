@@ -32,7 +32,7 @@ Eiendom :: Eiendom(char t, int nr) : Num_element(nr) {
   bruksNr = les("\n\tBruks-Nummer (4-siffre) : ", 4);
   saksB = les("\tSakbehandlers-Nummer (2-siffre) : ", 2);
   pris = les("\tPris for eiendomen (", MIN_PRIS ,MAX_PRIS);
-  areal = les("\tAreal på eiendom (", MIN_E_AREAL, MAX_E_AREAL);  cin.ignore();
+  areal = les("\tAreal pï¿½ eiendom (", MIN_E_AREAL, MAX_E_AREAL);  cin.ignore();
   les("\tGate-Adresse: ", gateadresse, MAX_TEGN_TEKST2);	      
   les("\tPost-Adresse: ", postAdresse, MAX_TEGN_TEKST2);		  
   les("\tEiers-Navn: ",   eiersN,      MAX_TEGN_TEKST2);		  
@@ -68,7 +68,7 @@ void Eiendom::display()	{
        << "\n\tBruks-nummer:	    "						<< bruksNr
        << "\n\tSaksbehandlers nr:	"					    << saksB
 	   << "\n\tPris for tomten/eiendomen:	"			    << pris
-	   << "\n\tAreal på tomten/eiendomen:	"				<< areal
+	   << "\n\tAreal pï¿½ tomten/eiendomen:	"				<< areal
 	   << "\n\tGateadresse:	"							    << gateadresse
 	   << "\n\tPostadresse:	"							    << postAdresse
 	   << "\n\tEiers navn:	"							    << eiersN
@@ -86,7 +86,7 @@ void Eiendom::display()	{
   }
 }
 
-bool Eiendom :: harPost(int postNr) {
+bool Eiendom :: harPost(int postNr) { //lovly post address
   char t1 = postAdresse[0];
   char t2 = postAdresse[1];
   char t3 = postAdresse[2];
@@ -97,7 +97,7 @@ bool Eiendom :: harPost(int postNr) {
   int tall3 = atoi(&t3);
   int tall4 = atoi(&t4);
 
-  int tall = (tall1 * 1000) + (tall2 * 100) + (tall3 * 10) + tall4;
+  int tall = (tall1 * 1000) + (tall2 * 100) + (tall3 * 10) + tall4;// sjekke for aa faa riktig info fra bruker
 
   if (tall == postNr) { return true; }
 
